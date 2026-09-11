@@ -8,12 +8,19 @@ radius = 8.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1150004504]
 script = ExtResource("1_imb0g")
+gravity_strength = 0.75
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1447432991]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.125, 0.25)
 texture = ExtResource("1_1r164")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1606142966]
 shape = SubResource("CapsuleShape2D_hrck2")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1979516761]
+[node name="CameraFreeTransform" type="Node" parent="." unique_id=1751673237]
+
+[node name="CameraFollowPivot" type="Node2D" parent="CameraFreeTransform" unique_id=1337553192]
+
+[node name="Camera2D" type="Camera2D" parent="CameraFreeTransform/CameraFollowPivot" unique_id=1979516761]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
