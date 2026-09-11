@@ -9,17 +9,18 @@ var has_spawned : bool = false
 
 func _ready() -> void:
 	$AreaIn.body_entered.connect(_on_area_in_body_entered)
+	$AreaOut.body_entered.connect(_on_area_out_body_entered)
 
-func _process(delta: float) -> void:
-	pass
 
-func spawn_next_holepit():
-	var next_holepit = duplicate()
+func spawn_next_holepit() -> void:
+	var next_holepit :Object = duplicate()
 	
 	next_holepit.position.y -= holepit_height
 	
 	get_parent().add_child(next_holepit)
 
+
+#Daerah fungsi Signal untuk AREA2D
 func _on_area_in_body_entered(body: Node2D) -> void:
 	print("test")
 	if body.name != "Player" :
@@ -29,3 +30,10 @@ func _on_area_in_body_entered(body: Node2D) -> void:
 		
 	has_spawned = true
 	spawn_next_holepit()
+
+func _on_area_out_body_entered(body: Node2D) -> void:
+	if body.name != "Player":
+		return
+	
+	await get_tree().create_timer(1).timeout
+	queue_free()

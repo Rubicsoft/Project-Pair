@@ -13,5 +13,7 @@ zoom = Vector2(1.5, 1.5)
 
 [node name="HolePit" parent="." unique_id=329477807 instance=ExtResource("2_qkpqy")]
 
+[connection signal="body_entered" from="HolePit/AreaOut" to="HolePit" method="_on_area_out_body_entered"]
+
 [editable path="Player"]
 [editable path="HolePit"]
