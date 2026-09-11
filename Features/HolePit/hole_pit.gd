@@ -5,16 +5,16 @@ extends Node2D
 
 @export var holepit_height :float = 380
 
-var has_spawned : bool = false
+var has_spawned :bool = false
+var is_deleting :bool = false
 
-func _ready() -> void:
-	$AreaIn.body_entered.connect(_on_area_in_body_entered)
-	$AreaOut.body_entered.connect(_on_area_out_body_entered)
-
+#membuat warning saat duplicate tapi masih butuh takut tidak connect
+#func _ready() -> void:
+	#$AreaIn.body_entered.connect(_on_area_in_body_entered)
+	#$AreaOut.body_entered.connect(_on_area_out_body_entered)
 
 func spawn_next_holepit() -> void:
-	var next_holepit :Object = duplicate()
-	
+	var next_holepit :Object = duplicate()  
 	next_holepit.position.y -= holepit_height
 	
 	get_parent().add_child(next_holepit)
@@ -22,18 +22,22 @@ func spawn_next_holepit() -> void:
 
 #Daerah fungsi Signal untuk AREA2D
 func _on_area_in_body_entered(body: Node2D) -> void:
-	print("test")
+	print("body masuk")
 	if body.name != "Player" :
 		return
 	if has_spawned :
 		return
 		
 	has_spawned = true
-	spawn_next_holepit()
+	call_deferred("spawn_next_holepit")
 
 func _on_area_out_body_entered(body: Node2D) -> void:
+	print("body keluar")
 	if body.name != "Player":
 		return
+	if is_deleting :
+		return
+	is_deleting = true
 	
 	await get_tree().create_timer(1).timeout
 	queue_free()
