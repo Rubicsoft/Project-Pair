@@ -84,6 +84,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func kill_self() -> void:
-	if god_mode: return
+func kill_self(immideate_kill: bool) -> void:
+	if god_mode and not immideate_kill: return
 	print("PLAYER MATI")

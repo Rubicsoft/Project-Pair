@@ -22,5 +22,5 @@ func activate_powerup() -> void:
 	print("ACTIVATE POWERUP")
 	player.god_mode = true
 
-func deactivate_powerup() -> void:
+func deactivate_powerup(_unused_var: bool) -> void:
 	player.god_mode = false
