@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://7e1njrd8kpv"]
 
 [ext_resource type="Script" uid="uid://b7ghxwj4kryj6" path="res://Features/HolePit/hole_pit.gd" id="1_cdeia"]
-[ext_resource type="Texture2D" uid="uid://d3oqdykb3w3jh" path="res://Features/platform/PlatformSheet.png" id="2_cdeia"]
+[ext_resource type="Texture2D" uid="uid://d3oqdykb3w3jh" path="res://Features/Platform/PlatformSheet.png" id="2_cdeia"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3uqjm"]
 texture = ExtResource("2_cdeia")

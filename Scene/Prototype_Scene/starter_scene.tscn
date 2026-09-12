@@ -1,9 +1,20 @@
 [gd_scene format=4 uid="uid://cbbm4t3gdn7ly"]
 
 [ext_resource type="PackedScene" uid="uid://byew7wk8aw2qh" path="res://Features/Player/Player.tscn" id="1_hrck2"]
+[ext_resource type="Script" uid="uid://dhutyapvfsq1n" path="res://Features/Obstacles/obstacles_manager.gd" id="1_o3ksw"]
 [ext_resource type="PackedScene" uid="uid://7e1njrd8kpv" path="res://Features/HolePit/hole_pit.tscn" id="2_qkpqy"]
 [ext_resource type="PackedScene" uid="uid://brxbv6selcv15" path="res://Features/Lava/lava.tscn" id="3_b65ur"]
-[ext_resource type="Texture2D" uid="uid://d3oqdykb3w3jh" path="res://Features/platform/PlatformSheet.png" id="4_d8lkn"]
+[ext_resource type="PackedScene" uid="uid://073x8ydu6gsd" path="res://Features/Obstacles/obs2.tscn" id="3_qcxhy"]
+[ext_resource type="Texture2D" uid="uid://d3oqdykb3w3jh" path="res://Features/Platform/PlatformSheet.png" id="4_d8lkn"]
+[ext_resource type="PackedScene" uid="uid://co44p7k87hp5a" path="res://Features/Obstacles/obs1.tscn" id="5_o3ksw"]
+[ext_resource type="PackedScene" uid="uid://cvvax8xr5jhc3" path="res://Features/Obstacles/obs6.tscn" id="6_xemry"]
+[ext_resource type="PackedScene" uid="uid://corljrqw8wsvu" path="res://Features/Obstacles/obs3.tscn" id="7_47oh0"]
+[ext_resource type="PackedScene" uid="uid://by8dtnovvi4jb" path="res://Features/Obstacles/obs7.tscn" id="8_e06gl"]
+[ext_resource type="PackedScene" uid="uid://jtld3htbb0bv" path="res://Features/Obstacles/obs4.tscn" id="8_qn8by"]
+[ext_resource type="PackedScene" uid="uid://b7xy7fofjxg4a" path="res://Features/Obstacles/obs5.tscn" id="9_hgeap"]
+[ext_resource type="PackedScene" uid="uid://cg1h1frygr4j" path="res://Features/Obstacles/obs8.tscn" id="9_u0rui"]
+[ext_resource type="PackedScene" uid="uid://es5dadp7nd2u" path="res://Features/Obstacles/obs9.tscn" id="10_h3xex"]
+[ext_resource type="PackedScene" uid="uid://bigei2uuhj08b" path="res://Features/Obstacles/obs10.tscn" id="11_hvv1g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o3ksw"]
 texture = ExtResource("4_d8lkn")
@@ -27,6 +38,12 @@ sources/0 = SubResource("TileSetAtlasSource_o3ksw")
 size = Vector2(128, 64)
 
 [node name="StarterScene" type="Node2D" unique_id=1494257243]
+
+[node name="ObstaclesManager" type="Node2D" parent="." unique_id=814958256]
+script = ExtResource("1_o3ksw")
+obstacle_scenes = Array[PackedScene]([ExtResource("5_o3ksw"), ExtResource("3_qcxhy"), ExtResource("7_47oh0"), ExtResource("8_qn8by"), ExtResource("9_hgeap"), ExtResource("6_xemry"), ExtResource("8_e06gl"), ExtResource("9_u0rui"), ExtResource("10_h3xex"), ExtResource("11_hvv1g")])
+player_path = NodePath("../Player")
+lane_x_positions = Array[float]([-170.0, -85.0, 0.0, 85.0, 170.0])
 
 [node name="Player" parent="." unique_id=1150004504 instance=ExtResource("1_hrck2")]
 movement_speed = null
@@ -55,7 +72,7 @@ collision_mask = 6
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1850152302]
 
 [node name="Start" type="TileMapLayer" parent="StaticBody2D" unique_id=1385723556]
-tile_map_data = PackedByteArray("AAAAAAEAAAACAAIAAAD//wEAAAACAAIAAAD+/wEAAAAAAAIAAAABAAEAAAAEAAIAAAABAAIAAAAEAAQAAAABAAMAAAAEAAYAAAAAAAMAAAAAAAYAAAD//wIAAAACAAYAAAD+/wIAAAAAAAYAAAAAAAIAAAACAAQAAAA=")
+tile_map_data = PackedByteArray("AAAAAAEAAAACAAIAAAD//wEAAAACAAIAAAD+/wEAAAAAAAIAAAABAAEAAAAEAAIAAAD+/wIAAAAAAAYAAAABAAIAAAAEAAYAAAAAAAIAAAAEAAQAAFD//wIAAAAEAAQAAFA=")
 tile_set = SubResource("TileSet_vuu0q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=743022217]
