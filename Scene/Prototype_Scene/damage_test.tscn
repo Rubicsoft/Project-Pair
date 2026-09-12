@@ -9,8 +9,11 @@
 
 [node name="DamageTest" type="Node2D" unique_id=1494257243]
 
+[node name="GameSceneBundle" parent="." unique_id=1307955083 instance=ExtResource("5_2fdft")]
+
 [node name="Player" parent="." unique_id=1150004504 instance=ExtResource("1_ly5sn")]
 position = Vector2(98, 174)
+upward_burst_duration = 1.0
 
 [node name="HolePit" parent="." unique_id=329477807 instance=ExtResource("2_22o66")]
 
@@ -35,8 +38,6 @@ duration = 0.6
 
 [node name="Node2D" type="Node2D" parent="Spiked_MovingPlatform_2" unique_id=1523126507]
 position = Vector2(-201, 0)
-
-[node name="GameSceneBundle" parent="." unique_id=1307955083 instance=ExtResource("5_2fdft")]
 
 [node name="Random_PowerUp" parent="." unique_id=214980479 instance=ExtResource("6_bg1mt")]
 position = Vector2(158, -86)
