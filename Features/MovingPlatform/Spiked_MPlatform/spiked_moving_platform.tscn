@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://duqap5ajh0yxt"]
+
+[ext_resource type="Script" uid="uid://cbqij7p5rlhac" path="res://Features/MovingPlatform/moving_platform.gd" id="1_tv4jx"]
+[ext_resource type="Texture2D" uid="uid://0wxp1upicm6a" path="res://icon.svg" id="2_yoykt"]
+[ext_resource type="PackedScene" uid="uid://dmfc8bc20yb6p" path="res://Features/DamageHitbox/damage_hitbox.tscn" id="3_5lp2p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8xu5"]
+size = Vector2(64, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6smb"]
+size = Vector2(64, 14)
+
+[node name="Spiked_MovingPlatform" type="Node2D" unique_id=390947985]
+script = ExtResource("1_tv4jx")
+
+[node name="MovingPlatformBody" type="AnimatableBody2D" parent="." unique_id=1778466753]
+
+[node name="Sprite2D" type="Sprite2D" parent="MovingPlatformBody" unique_id=1988365768]
+scale = Vector2(0.5, 0.128)
+texture = ExtResource("2_yoykt")
+
+[node name="Sprite2D2" type="Sprite2D" parent="MovingPlatformBody" unique_id=761520663]
+self_modulate = Color(1, 0, 0, 1)
+position = Vector2(0, 14.903999)
+scale = Vector2(0.5, 0.11087501)
+texture = ExtResource("2_yoykt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatformBody" unique_id=1357831243]
+shape = SubResource("RectangleShape2D_g8xu5")
+
+[node name="DamageHitbox" parent="MovingPlatformBody" unique_id=1793363561 instance=ExtResource("3_5lp2p")]
+position = Vector2(0, 15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatformBody/DamageHitbox" unique_id=2052105215]
+shape = SubResource("RectangleShape2D_w6smb")
+debug_color = Color(0.9639903, 0.19251654, 1.92523e-07, 0.41960785)

@@ -20,6 +20,8 @@ func _exit_tree() -> void:
 	Global.player = null
 
 func _ready() -> void:
+	EventBus.connect("kill_player", kill_self)
+	
 	cam_follow_pivot.global_position = global_position
 	camera.global_position = global_position
 
@@ -43,3 +45,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = -jump_force
 
 	move_and_slide()
+
+
+func kill_self() -> void:
+	print("PLAYER MATI")

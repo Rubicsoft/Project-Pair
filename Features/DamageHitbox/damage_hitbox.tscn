@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dmfc8bc20yb6p"]
+
+[ext_resource type="Script" uid="uid://bki7kcmgossaw" path="res://Features/DamageHitbox/damage_hitbox.gd" id="1_qrsd5"]
+
+[node name="DamageHitbox" type="Area2D" unique_id=1793363561]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_qrsd5")
