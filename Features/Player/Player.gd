@@ -72,7 +72,6 @@ func _physics_process(delta: float) -> void:
 	# Upward burst mechanic
 	if is_on_ceiling() or is_on_floor():
 		upward_force = 0.0
-		upward_cooldown = upward_burst_duration
 	if Input.is_action_pressed("ui_accept"):
 		upward_cooldown -= delta
 		if upward_cooldown > 0.0:
