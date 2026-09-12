@@ -1,50 +1,86 @@
-[gd_scene format=3 uid="uid://7e1njrd8kpv"]
+[gd_scene format=4 uid="uid://7e1njrd8kpv"]
 
 [ext_resource type="Script" uid="uid://b7ghxwj4kryj6" path="res://Features/HolePit/hole_pit.gd" id="1_cdeia"]
-[ext_resource type="Texture2D" uid="uid://0wxp1upicm6a" path="res://icon.svg" id="1_twuhu"]
+[ext_resource type="Texture2D" uid="uid://d3oqdykb3w3jh" path="res://Features/platform/PlatformSheet.png" id="2_cdeia"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3uqjm"]
+texture = ExtResource("2_cdeia")
+margins = Vector2i(16, 16)
+texture_region_size = Vector2i(32, 32)
+2:2/0 = 0
+4:2/0 = 0
+4:4/0 = 0
+0:2/0 = 0
+0:4/0 = 0
+0:6/0 = 0
+2:6/0 = 0
+4:6/0 = 0
+2:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_wgnpx"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_3uqjm")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cdeia"]
-size = Vector2(64, 384)
+size = Vector2(96, 928)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mwf2i"]
+texture = ExtResource("2_cdeia")
+margins = Vector2i(16, 16)
+texture_region_size = Vector2i(32, 32)
+2:4/0 = 0
+0:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_8hk75"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_mwf2i")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wgnpx"]
+size = Vector2(96, 927)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_twuhu"]
-size = Vector2(664, 20)
+size = Vector2(396, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3uqjm"]
-size = Vector2(534, 20)
+size = Vector2(395, 20)
 
 [node name="HolePit" type="Node2D" unique_id=329477807]
 script = ExtResource("1_cdeia")
 
 [node name="LeftWall" type="StaticBody2D" parent="." unique_id=351964598]
-position = Vector2(-300, 0)
+position = Vector2(-230, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="LeftWall" unique_id=1104872523]
-scale = Vector2(0.5, 3)
-texture = ExtResource("1_twuhu")
+[node name="Sprite2D" type="TileMapLayer" parent="LeftWall" unique_id=182736431]
+tile_map_data = PackedByteArray("AAAAAAUAAAAEAAQAAAAAAAQAAAAEAAQAAAAAAAMAAAAEAAQAAAAAAAIAAAAEAAQAAAAAAAEAAAAEAAQAAAAAAAAAAAAEAAQAAAAAAP//AAAEAAQAAAAAAP7/AAAEAAQAAAAAAP3/AAAEAAQAAAAAAPz/AAAEAAQAAAAAAPv/AAAEAAQAAAAAAPr/AAAEAAQAAAD///r/AAACAAQAAAD///v/AAACAAQAAAD///z/AAACAAQAAAD///3/AAACAAQAAAD///7/AAACAAQAAAD/////AAACAAQAAAD//wAAAAACAAQAAAD//wEAAAACAAQAAAD//wIAAAACAAQAAAD//wMAAAACAAQAAAD//wQAAAACAAQAAAD//wUAAAACAAQAAAD+//r/AAACAAQAAAD+//v/AAACAAQAAAD+//z/AAACAAQAAAD+//3/AAACAAQAAAD+//7/AAACAAQAAAD+////AAACAAQAAAD+/wAAAAACAAQAAAD+/wEAAAACAAQAAAD+/wIAAAACAAQAAAD+/wMAAAACAAQAAAD+/wQAAAACAAQAAAD+/wUAAAACAAQAAAAAAPn/AAAEAAQAAAAAAPj/AAAEAAQAAAAAAPf/AAAEAAQAAAAAAPb/AAAEAAQAAAAAAPX/AAAEAAQAAAAAAPT/AAAEAAQAAAAAAPP/AAAEAAQAAAAAAPL/AAAEAAQAAAAAAPH/AAAEAAQAAAAAAPD/AAAEAAQAAAAAAO//AAAEAAQAAAAAAO7/AAAEAAQAAAAAAO3/AAAEAAQAAAAAAOz/AAAEAAQAAAAAAOv/AAAEAAQAAAAAAOr/AAAEAAQAAAAAAOn/AAAEAAQAAAD///n/AAACAAQAAAD+//n/AAACAAQAAAD///j/AAACAAQAAAD+//j/AAACAAQAAAD+//f/AAACAAQAAAD+//b/AAACAAQAAAD+//X/AAACAAQAAAD+//T/AAACAAQAAAD+//P/AAACAAQAAAD+//L/AAACAAQAAAD+//H/AAACAAQAAAD+//D/AAACAAQAAAD+/+//AAACAAQAAAD+/+7/AAACAAQAAAD+/+3/AAACAAQAAAD+/+z/AAACAAQAAAD+/+v/AAACAAQAAAD+/+r/AAACAAQAAAD+/+n/AAACAAQAAAD//+n/AAACAAQAAAD//+r/AAACAAQAAAD//+v/AAACAAQAAAD//+z/AAACAAQAAAD//+3/AAACAAQAAAD//+7/AAACAAQAAAD//+//AAACAAQAAAD///D/AAACAAQAAAD///H/AAACAAQAAAD///L/AAACAAQAAAD///P/AAACAAQAAAD///f/AAACAAQAAAD///b/AAACAAQAAAD///X/AAACAAQAAAD///T/AAACAAQAAAA=")
+tile_set = SubResource("TileSet_wgnpx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" unique_id=417650087]
+position = Vector2(-16, -272)
 shape = SubResource("RectangleShape2D_cdeia")
 
 [node name="RightWall" type="StaticBody2D" parent="." unique_id=1779270608]
-position = Vector2(300, 0)
+position = Vector2(230, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="RightWall" unique_id=1404708614]
-scale = Vector2(0.5, 3)
-texture = ExtResource("1_twuhu")
+[node name="Sprite2D" type="TileMapLayer" parent="RightWall" unique_id=1939043772]
+tile_map_data = PackedByteArray("AAD///r/AAAAAAQAAAD///v/AAAAAAQAAAD///z/AAAAAAQAAAD///3/AAAAAAQAAAD///7/AAAAAAQAAAD/////AAAAAAQAAAD//wAAAAAAAAQAAAD//wEAAAAAAAQAAAD//wIAAAAAAAQAAAD//wMAAAAAAAQAAAD//wQAAAAAAAQAAAD//wUAAAAAAAQAAAAAAPr/AAACAAQAAAAAAPv/AAACAAQAAAAAAPz/AAACAAQAAAAAAP3/AAACAAQAAAAAAP7/AAACAAQAAAAAAP//AAACAAQAAAAAAAAAAAACAAQAAAAAAAEAAAACAAQAAAAAAAIAAAACAAQAAAAAAAMAAAACAAQAAAAAAAQAAAACAAQAAAAAAAUAAAACAAQAAAABAAUAAAACAAQAAAABAAQAAAACAAQAAAABAAMAAAACAAQAAAABAAIAAAACAAQAAAABAAEAAAACAAQAAAABAAAAAAACAAQAAAABAP//AAACAAQAAAABAP7/AAACAAQAAAABAP3/AAACAAQAAAABAPz/AAACAAQAAAABAPv/AAACAAQAAAABAPr/AAACAAQAAAD///n/AAAAAAQAAAD///j/AAAAAAQAAAD///f/AAAAAAQAAAD///b/AAAAAAQAAAD///X/AAAAAAQAAAD///T/AAAAAAQAAAD///P/AAAAAAQAAAD///L/AAAAAAQAAAD///H/AAAAAAQAAAD///D/AAAAAAQAAAD//+//AAAAAAQAAAD//+7/AAAAAAQAAAD//+3/AAAAAAQAAAD//+z/AAAAAAQAAAD//+v/AAAAAAQAAAD//+r/AAAAAAQAAAD//+n/AAAAAAQAAAAAAPj/AAACAAQAAAAAAPn/AAACAAQAAAABAPn/AAACAAQAAAABAPj/AAACAAQAAAABAPf/AAACAAQAAAAAAPf/AAACAAQAAAAAAPb/AAACAAQAAAABAPb/AAACAAQAAAABAPX/AAACAAQAAAAAAPX/AAACAAQAAAAAAPT/AAACAAQAAAAAAPP/AAACAAQAAAABAPP/AAACAAQAAAABAPT/AAACAAQAAAABAPL/AAACAAQAAAABAPH/AAACAAQAAAAAAPH/AAACAAQAAAAAAPL/AAACAAQAAAAAAPD/AAACAAQAAAABAPD/AAACAAQAAAAAAO//AAACAAQAAAAAAO7/AAACAAQAAAAAAO3/AAACAAQAAAABAO//AAACAAQAAAABAO7/AAACAAQAAAABAO3/AAACAAQAAAABAOz/AAACAAQAAAABAOv/AAACAAQAAAAAAOv/AAACAAQAAAAAAOr/AAACAAQAAAAAAOn/AAACAAQAAAABAOn/AAACAAQAAAABAOr/AAACAAQAAAAAAOz/AAACAAQAAAA=")
+tile_set = SubResource("TileSet_8hk75")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall" unique_id=1616948643]
-shape = SubResource("RectangleShape2D_cdeia")
+position = Vector2(16, -272.5)
+shape = SubResource("RectangleShape2D_wgnpx")
 
 [node name="AreaIn" type="Area2D" parent="." unique_id=1222017927]
+position = Vector2(0, -182)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaIn" unique_id=1364773859]
 position = Vector2(0, 182)
 shape = SubResource("RectangleShape2D_twuhu")
 
 [node name="AreaOut" type="Area2D" parent="." unique_id=2090016401]
+position = Vector2(0, -543)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaOut" unique_id=1906828633]
-position = Vector2(0, -182)
+position = Vector2(0.5, -182)
 shape = SubResource("RectangleShape2D_3uqjm")
 
 [connection signal="body_entered" from="AreaIn" to="." method="_on_area_in_body_entered"]

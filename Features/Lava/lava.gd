@@ -4,7 +4,7 @@ extends Node2D
 @export var screen_margin: float = 40.0 
 @export var bottom_marker_path: NodePath
 
-var bottom_marker: Marker2D
+var bottom_marker: Marker2D 
 
 func _ready() -> void:
 	connect("body_entered", func(body: Player): EventBus.emit_signal("kill_player"))
@@ -19,5 +19,6 @@ func _physics_process(delta: float) -> void:
 
 	# Batas maksimal: lava tidak boleh lebih tinggi dari tepi bawah kamera + margin
 	var max_y := bottom_marker.global_position.y + screen_margin
+	print(max_y, position.y)
 	if global_position.y > max_y:
 		global_position.y = max_y

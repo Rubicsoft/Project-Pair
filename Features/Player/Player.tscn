@@ -31,4 +31,4 @@ zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 
 [node name="Marker2D" type="Marker2D" parent="CameraFreeTransform/CameraFollowPivot/Camera2D" unique_id=786885781]
-position = Vector2(0, 194)
+position = Vector2(0, -35)

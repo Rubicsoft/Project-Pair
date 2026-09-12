@@ -1,0 +1,30 @@
+[gd_scene format=4 uid="uid://brxbv6selcv15"]
+
+[ext_resource type="Script" uid="uid://d11tit6ofmvxk" path="res://Features/Lava/lava.gd" id="1_x8qlx"]
+[ext_resource type="Texture2D" uid="uid://dlwhgtqinvagj" path="res://Features/Lava/lavaSprite.png" id="2_x8qlx"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t56d5"]
+texture = ExtResource("2_x8qlx")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_l2eiu"]
+tile_size = Vector2i(32, 32)
+sources/1 = SubResource("TileSetAtlasSource_t56d5")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d8lkn"]
+size = Vector2(111.37161, 51)
+
+[node name="Lava" type="Area2D" unique_id=896567504]
+script = ExtResource("1_x8qlx")
+bottom_marker_path = NodePath("../Player/CameraFreeTransform/CameraFollowPivot/Camera2D/Marker2D")
+
+[node name="Sprite" type="TileMapLayer" parent="." unique_id=1126497476]
+position = Vector2(-1.5258789e-05, 242)
+tile_map_data = PackedByteArray("AAACAP7/AQAAAAAAAAADAP7/AQAAAAAAAAAEAP7/AQAAAAAAAAAFAP7/AQAAAAAAAAAGAP7/AQAAAAAAAAAHAP7/AQAAAAAAAAAIAP7/AQAAAAAAAAAIAP//AQAAAAAAAAAHAP//AQAAAAAAAAAGAP//AQAAAAAAAAAFAP//AQAAAAAAAAAEAP//AQAAAAAAAAADAP//AQAAAAAAAAACAP//AQAAAAAAAAABAP//AQAAAAAAAAAAAP//AQAAAAAAAAD/////AQAAAAAAAAD+////AQAAAAAAAAD9////AQAAAAAAAAD8////AQAAAAAAAAD7////AQAAAAAAAAD6////AQAAAAAAAAD5////AQAAAAAAAAD4////AQAAAAAAAAD3////AQAAAAAAAAD3//7/AQAAAAAAAAD4//7/AQAAAAAAAAD5//7/AQAAAAAAAAD6//7/AQAAAAAAAAD7//7/AQAAAAAAAAD8//7/AQAAAAAAAAD9//7/AQAAAAAAAAD+//7/AQAAAAAAAAD///7/AQAAAAAAAAAAAP7/AQAAAAAAAAABAP7/AQAAAAAAAAD3/wAAAQAAAAAAAAD4/wAAAQAAAAAAAAD5/wAAAQAAAAAAAAD6/wAAAQAAAAAAAAD7/wAAAQAAAAAAAAD8/wAAAQAAAAAAAAD9/wAAAQAAAAAAAAD+/wAAAQAAAAAAAAD//wAAAQAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAQAAAAAAAAACAAAAAQAAAAAAAAADAAAAAQAAAAAAAAAEAAAAAQAAAAAAAAAFAAAAAQAAAAAAAAAGAAAAAQAAAAAAAAAHAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_l2eiu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1581006302]
+position = Vector2(3.8146973e-06, 203.5)
+scale = Vector2(5.1718745, 1)
+shape = SubResource("RectangleShape2D_d8lkn")
