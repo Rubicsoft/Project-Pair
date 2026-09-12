@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cj28cln7es655"]
+
+[ext_resource type="PackedScene" uid="uid://byew7wk8aw2qh" path="res://Features/Player/Player.tscn" id="1_ly5sn"]
+[ext_resource type="PackedScene" uid="uid://7e1njrd8kpv" path="res://Features/HolePit/hole_pit.tscn" id="2_22o66"]
+[ext_resource type="PackedScene" uid="uid://beoouycjsugnv" path="res://Features/MovingPlatform/moving_platform.tscn" id="3_22o66"]
+
+[node name="StarterScene" type="Node2D" unique_id=1494257243]
+
+[node name="Player" parent="." unique_id=1150004504 instance=ExtResource("1_ly5sn")]
+position = Vector2(98, 174)
+
+[node name="HolePit" parent="." unique_id=329477807 instance=ExtResource("2_22o66")]
+
+[node name="MovingPlatform" parent="." unique_id=390947985 node_paths=PackedStringArray("target_position") instance=ExtResource("3_22o66")]
+position = Vector2(0, -105)
+target_position = NodePath("Node2D")
+
+[node name="Node2D" type="Node2D" parent="MovingPlatform" unique_id=330624395]
+position = Vector2(196, 2)
+
+[connection signal="body_entered" from="HolePit/AreaOut" to="HolePit" method="_on_area_out_body_entered"]
+
+[editable path="HolePit"]
