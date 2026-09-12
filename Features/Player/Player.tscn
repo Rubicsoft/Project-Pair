@@ -1,21 +1,15 @@
 [gd_scene format=3 uid="uid://byew7wk8aw2qh"]
 
-[ext_resource type="Texture2D" uid="uid://0wxp1upicm6a" path="res://icon.svg" id="1_1r164"]
 [ext_resource type="Script" uid="uid://bbdsfmwo5ejga" path="res://Features/Player/Player.gd" id="1_imb0g"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hrck2"]
-radius = 8.0
+height = 26.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1150004504]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_imb0g")
 gravity_strength = 0.75
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1447432991]
-visible = false
-scale = Vector2(0.125, 0.25)
-texture = ExtResource("1_1r164")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1606142966]
 shape = SubResource("CapsuleShape2D_hrck2")

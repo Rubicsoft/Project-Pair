@@ -3,6 +3,7 @@ class_name Player
 
 @export_group("Player Movement")
 @export_range(0.0, 1000.0, 0.1) var movement_speed := 300.0
+@export_range(1.0, 20.0, 0.1) var movement_smoothness := 8.0
 @export_range(0.0, 1000.0, 0.1) var jump_force := 400.0
 @export_range(0.0, 1.0, 0.01) var gravity_strength := 1.0
 @export_group("")
@@ -12,6 +13,8 @@ class_name Player
 @onready var camera: Camera2D = $CameraFreeTransform/CameraFollowPivot/Camera2D
 
 var camera_follow := true
+var direction := 0.0
+var smoothed_direction := 0.0
 
 func _enter_tree() -> void:
 	Global.player = self
@@ -30,9 +33,11 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	# Movement handling
-	var direction := signf(Input.get_axis("move_left", "move_right"))
+	direction = signf(Input.get_axis("move_left", "move_right"))
+	smoothed_direction = lerpf(smoothed_direction, direction, delta * movement_smoothness)
+	
 	if direction:
-		velocity.x = direction * movement_speed
+		velocity.x = smoothed_direction * movement_speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, movement_speed)
 	
