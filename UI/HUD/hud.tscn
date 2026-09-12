@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bx6rd37tfy7j2"]
+
+[ext_resource type="Script" uid="uid://23l0i274oxlx" path="res://UI/HUD/hud.gd" id="1_ia7gp"]
+
+[node name="HUD" type="CanvasLayer" unique_id=421391240]
+script = ExtResource("1_ia7gp")
+
+[node name="HUD_Box" type="Control" parent="." unique_id=1122789763]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScoreCount" type="Label" parent="HUD_Box" unique_id=985793005]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -207.0
+offset_top = 21.0
+offset_right = 207.0
+offset_bottom = 44.0
+grow_horizontal = 2
+text = "Score: 000"
+horizontal_alignment = 1

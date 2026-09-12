@@ -11,6 +11,8 @@ class_name Player
 @onready var cam_follow_pivot: Node2D = $CameraFreeTransform/CameraFollowPivot
 @onready var camera: Camera2D = $CameraFreeTransform/CameraFollowPivot/Camera2D
 
+var last_ypos := 0.0
+var current_ypos := 0.0
 var camera_follow := true
 
 func _enter_tree() -> void:
@@ -24,9 +26,15 @@ func _ready() -> void:
 	
 	cam_follow_pivot.global_position = global_position
 	camera.global_position = global_position
+	
+	last_ypos = global_position.y
 
 func _process(delta: float) -> void:
 	if camera_follow: cam_follow_pivot.global_position.y = global_position.y - camera_edge
+	
+	if Global.update_score:
+		current_ypos = global_position.y
+		Global.score = last_ypos - current_ypos
 
 func _physics_process(delta: float) -> void:
 	# Movement handling
