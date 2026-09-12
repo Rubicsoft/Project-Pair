@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://byew7wk8aw2qh"]
 
 [ext_resource type="Script" uid="uid://bbdsfmwo5ejga" path="res://Features/Player/Player.gd" id="1_imb0g"]
+[ext_resource type="Script" uid="uid://eh8kcjr620rg" path="res://Features/Player/powerup_manager.gd" id="3_6ejaw"]
 [ext_resource type="Texture2D" uid="uid://ds6ylvjgxlt6t" path="res://Features/Player/Sprites/cat_base.png" id="3_bd6kk"]
+[ext_resource type="Texture2D" uid="uid://0wxp1upicm6a" path="res://icon.svg" id="4_6ejaw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6ejaw"]
 atlas = ExtResource("3_bd6kk")
@@ -32,3 +34,17 @@ position_smoothing_enabled = true
 
 [node name="Marker2D" type="Marker2D" parent="CameraFreeTransform/CameraFollowPivot/Camera2D" unique_id=786885781]
 position = Vector2(0, 194)
+
+[node name="PowerUpManager" type="Node" parent="." unique_id=1089118043]
+script = ExtResource("3_6ejaw")
+
+[node name="Timer" type="Timer" parent="PowerUpManager" unique_id=785706354]
+
+[node name="PowerUps" type="Node2D" parent="." unique_id=592041100]
+
+[node name="Shield" type="Node2D" parent="PowerUps" unique_id=1299842557]
+
+[node name="Sprite2D" type="Sprite2D" parent="PowerUps/Shield" unique_id=1447380363]
+self_modulate = Color(1, 1, 1, 0.24313726)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_6ejaw")

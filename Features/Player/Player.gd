@@ -9,6 +9,8 @@ class_name Player
 @export_range(1.0, 20.0, 0.1) var movement_smooth_vector := 4.0
 @export_group("")
 @export_range(0, 256, 1) var camera_edge := 50
+@export_group("PowerUps")
+@export var god_mode := false
 
 @onready var cam_follow_pivot: Node2D = $CameraFreeTransform/CameraFollowPivot
 @onready var camera: Camera2D = $CameraFreeTransform/CameraFollowPivot/Camera2D
@@ -22,11 +24,8 @@ var last_direction := 0.0
 var smoothed_direction := 0.0
 
 
-func _enter_tree() -> void:
-	Global.player = self
-
-func _exit_tree() -> void:
-	Global.player = null
+func _enter_tree() -> void: Global.player = self
+func _exit_tree() -> void: Global.player = null
 
 func _ready() -> void:
 	EventBus.connect("kill_player", kill_self)
@@ -45,6 +44,9 @@ func _process(_delta: float) -> void:
 	if Global.update_score:
 		current_ypos = global_position.y
 		Global.score = int(last_ypos - current_ypos)
+	
+	# POWER UPS
+	$PowerUps/Shield/Sprite2D.visible = god_mode
 
 func _physics_process(delta: float) -> void:
 	# Movement handling
@@ -83,4 +85,5 @@ func _physics_process(delta: float) -> void:
 
 
 func kill_self() -> void:
+	if god_mode: return
 	print("PLAYER MATI")
