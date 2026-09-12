@@ -26,11 +26,12 @@ func _process(_delta: float) -> void:
 		match power_up:
 			PowerUpType.SHIELD: player.god_mode = true
 			PowerUpType.BOOST_DURATION: player.extra_boost_duration = true
-			PowerUpType.LAVA_SLOWMO: player.lava_slowmo = true
+			PowerUpType.LAVA_SLOWMO: Global.lava_slowmo = true
 
 func activate_powerup() -> void:
 	powerup_in_use = true
 	power_up = randi_range(0, POWERUP_COUNT - 1) as PowerUpType
+	EventBus.emit_signal("powerup_index", power_up)
 	timer.start(powerup_duration)
 	print("ACTIVATE POWERUP: " + str(power_up))
 
@@ -40,4 +41,5 @@ func deactivate_powerup() -> void:
 	
 	player.god_mode = false
 	player.extra_boost_duration = false
+	Global.lava_slowmo = false
 	print("POWERUP DEACTIVATED")

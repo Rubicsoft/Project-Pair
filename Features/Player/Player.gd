@@ -12,7 +12,6 @@ class_name Player
 @export_group("PowerUps")
 @export var god_mode := false
 @export var extra_boost_duration := false
-@export var lava_slowmo := false
 
 @onready var cam_follow_pivot: Node2D = $CameraFreeTransform/CameraFollowPivot
 @onready var camera: Camera2D = $CameraFreeTransform/CameraFollowPivot/Camera2D
@@ -31,7 +30,9 @@ var playing_animsheet := false
 
 
 func _enter_tree() -> void: Global.player = self
-func _exit_tree() -> void: Global.player = null
+func _exit_tree() -> void:
+	Global.player = null
+	Global.reset_global_vars()
 
 func _ready() -> void:
 	EventBus.connect("kill_player", kill_self)
