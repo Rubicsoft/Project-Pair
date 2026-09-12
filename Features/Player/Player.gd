@@ -22,6 +22,7 @@ var upward_cooldown := 0.0
 var direction := 0.0
 var last_direction := 0.0
 var smoothed_direction := 0.0
+var _upward_force := 0.0
 
 
 func _enter_tree() -> void: Global.player = self
@@ -71,14 +72,14 @@ func _physics_process(delta: float) -> void:
 
 	# Upward burst mechanic
 	if is_on_ceiling() or is_on_floor():
-		upward_force = 0.0
+		_upward_force = 0.0
 	if Input.is_action_pressed("ui_accept"):
 		upward_cooldown -= delta
 		if upward_cooldown > 0.0:
-			upward_force += 400.0 * delta
-			velocity.y = -upward_force
+			_upward_force += upward_force * delta
+			velocity.y = -(_upward_force)
 	else:
-		upward_force = 0.0
+		_upward_force = 0.0
 		upward_cooldown = upward_burst_duration
 
 	move_and_slide()
