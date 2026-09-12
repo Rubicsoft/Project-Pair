@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ObstacleData" format=3 uid="uid://bj33rnepxu05s"]
+
+[ext_resource type="Script" uid="uid://bouifvglww5dd" path="res://Features/Obstacles/obstacle_data.gd" id="1_072lk"]
+[ext_resource type="PackedScene" uid="uid://es5dadp7nd2u" path="res://Features/Obstacles/obs9.tscn" id="1_qft3m"]
+
+[resource]
+script = ExtResource("1_072lk")
+scene = ExtResource("1_qft3m")
+width = 85.0
+height = 60.0
+center_offset = Vector2(-11, 31)
+metadata/_custom_type_script = "uid://bouifvglww5dd"
