@@ -1,0 +1,70 @@
+[gd_scene format=4 uid="uid://b7xy7fofjxg4a"]
+
+[ext_resource type="TileSet" uid="uid://b46po56u03reu" path="res://Features/Obstacles/obstaclesRes.tres" id="1_3visw"]
+[ext_resource type="PackedScene" uid="uid://dmfc8bc20yb6p" path="res://Features/DamageHitbox/damage_hitbox.tscn" id="2_c46cn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0j6gr"]
+size = Vector2(221, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebwip"]
+size = Vector2(125, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqreg"]
+size = Vector2(93, 63.6875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iygqg"]
+size = Vector2(14, 17.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sx0ch"]
+size = Vector2(16.84375, 156.375)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xnhvh"]
+size = Vector2(23.6875, 17.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_it3on"]
+size = Vector2(13.84375, 17.5)
+
+[node name="Obs1" type="StaticBody2D" unique_id=423421801]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1712154553]
+tile_map_data = PackedByteArray("AAAAAAAAAgACAAIAAAD//wAAAgACAAIAAAABAAAAAgACAAIAAAD+/wAAAgACAAIAAAD9/wAAAgAAAAIAAAD9/wEAAgAAAAQAAAD9/wIAAgAAAAQAAAD9/wMAAgAAAAQAAAD9/wQAAgAAAAYAAAD+/wQAAgACAAYAAAD//wQAAgAEAAYAAAADAAAAAgAEAAIAAAACAAAAAgACAAIAAAADAAEAAgAEAAYAAAD//wMAAgAEAAQAAAACAAEAAgAEAAQAAFABAAEAAgAEAAQAAFAAAAIAAgAEAAYAAAD//wIAAgACAAQAAAAAAAEAAgACAAQAAAD//wEAAgACAAQAAAD+/wEAAgACAAQAAAD+/wIAAgACAAQAAAD+/wMAAgACAAQAAAAAAAMABAAEAAAAAAD9/wUABAAKAAEAAAADAAIABAALAAEAAAD8/wAABAAEAAEAAAD8/wEABAAIAAAAAAD8/wIABAAHAAAAAAD8/wMABAAMAAEAAAD8/wQABAAOAAEAAAA=")
+tile_set = ExtResource("1_3visw")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=932218960]
+tile_map_data = PackedByteArray("AAD8/wAABAANAAEAAAD8/wMABAANAAEAAAD8/wQABAAFAAEAAAA=")
+tile_set = ExtResource("1_3visw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=347319934]
+position = Vector2(15.5, 32.5)
+shape = SubResource("RectangleShape2D_0j6gr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=695160832]
+position = Vector2(-32.5, 79)
+shape = SubResource("RectangleShape2D_ebwip")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=231694094]
+position = Vector2(-48.5, 127.15625)
+shape = SubResource("RectangleShape2D_gqreg")
+
+[node name="DamageHitbox" parent="." unique_id=1793363561 instance=ExtResource("2_c46cn")]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageHitbox" unique_id=1821796317]
+position = Vector2(120, 74)
+shape = SubResource("RectangleShape2D_iygqg")
+debug_color = Color(0.99999994, 0.017977003, 0.010558346, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DamageHitbox" unique_id=1936945359]
+position = Vector2(-106, 79.8125)
+shape = SubResource("RectangleShape2D_sx0ch")
+debug_color = Color(0.99999994, 0.017977003, 0.010558346, 0.41960785)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="DamageHitbox" unique_id=139842667]
+position = Vector2(14.15625, 106)
+shape = SubResource("RectangleShape2D_xnhvh")
+debug_color = Color(0.99999994, 0.017977003, 0.010558346, 0.41960785)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="DamageHitbox" unique_id=916823588]
+position = Vector2(-87.921875, 170)
+shape = SubResource("RectangleShape2D_it3on")
+debug_color = Color(0.99999994, 0.017977003, 0.010558346, 0.41960785)

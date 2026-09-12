@@ -1,7 +1,7 @@
-[gd_scene format=4 uid="uid://b7xy7fofjxg4a"]
+[gd_scene format=4 uid="uid://jtld3htbb0bv"]
 
-[ext_resource type="TileSet" uid="uid://b46po56u03reu" path="res://Features/Obstacles/obstaclesRes.tres" id="1_gqreg"]
-[ext_resource type="PackedScene" uid="uid://dmfc8bc20yb6p" path="res://Features/DamageHitbox/damage_hitbox.tscn" id="2_xnhvh"]
+[ext_resource type="TileSet" uid="uid://b46po56u03reu" path="res://Features/Obstacles/obstaclesRes.tres" id="1_3visw"]
+[ext_resource type="PackedScene" uid="uid://dmfc8bc20yb6p" path="res://Features/DamageHitbox/damage_hitbox.tscn" id="2_c46cn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0j6gr"]
 size = Vector2(159, 27)
@@ -19,11 +19,11 @@ size = Vector2(16.84375, 58.75)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1712154553]
 tile_map_data = PackedByteArray("AAAAAAAAAgACAAIAAAD//wAAAgACAAIAAAABAAAAAgACAAIAAAACAAAAAgAEAAIAAAD+/wEAAgAAAAQAAAD//wEAAgACAAQAAAD9/wEABAAHAAAAAAD+/wAAAgAAAAIAAAD9/wAABAAEAAEAAAADAAAABAAGAAEAAAA=")
-tile_set = ExtResource("1_gqreg")
+tile_set = ExtResource("1_3visw")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=932218960]
 tile_map_data = PackedByteArray("AAD9/wAABAADAAEAAAADAAAABAAQAAAAAAA=")
-tile_set = ExtResource("1_gqreg")
+tile_set = ExtResource("1_3visw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=347319934]
 position = Vector2(15.5, 16.5)
@@ -33,7 +33,7 @@ shape = SubResource("RectangleShape2D_0j6gr")
 position = Vector2(-32, 46.625)
 shape = SubResource("RectangleShape2D_ebwip")
 
-[node name="DamageHitbox" parent="." unique_id=1793363561 instance=ExtResource("2_xnhvh")]
+[node name="DamageHitbox" parent="." unique_id=1793363561 instance=ExtResource("2_c46cn")]
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageHitbox" unique_id=1821796317]
