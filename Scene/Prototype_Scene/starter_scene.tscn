@@ -11,6 +11,15 @@ size = Vector2(126.64653, 77)
 [node name="StarterScene" type="Node2D" unique_id=1494257243]
 
 [node name="Player" parent="." unique_id=1150004504 instance=ExtResource("1_hrck2")]
+collision_layer = 1
+collision_mask = 1
+gravity_strength = null
+movement_speed = null
+jump_force = null
+camera_edge = null
+
+[node name="Sprite2D" parent="Player" index="0" unique_id=1447432991]
+visible = true
 
 [node name="Camera2D" parent="Player/CameraFreeTransform/CameraFollowPivot" parent_id_path=PackedInt32Array(1150004504, 1337553192) index="0" unique_id=1979516761]
 zoom = Vector2(1, 1)

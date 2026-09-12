@@ -7,6 +7,7 @@ extends Node2D
 var bottom_marker: Marker2D
 
 func _ready() -> void:
+	connect("body_entered", func(body: Player): EventBus.emit_signal("kill_player"))
 	bottom_marker = get_node(bottom_marker_path)
 
 func _physics_process(delta: float) -> void:
