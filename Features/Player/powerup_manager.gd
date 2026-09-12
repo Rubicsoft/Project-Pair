@@ -7,20 +7,37 @@ extends Node
 
 enum PowerUpType {
 	SHIELD, 
-	LAVA_SLOWMO, 
-	TIMER_EXTEND
+	BOOST_DURATION,
+	LAVA_SLOWMO 
 }
+const POWERUP_COUNT = 3
 
 var powerup_in_use := false
+var power_up: PowerUpType
 
 
 func _ready() -> void:
 	EventBus.connect("add_powerup", activate_powerup)
-	EventBus.connect("kill_player", deactivate_powerup)
+	EventBus.connect("kill_player", func(_unused_var: bool) -> void: deactivate_powerup())
+	timer.connect("timeout", deactivate_powerup)
+
+func _process(_delta: float) -> void:
+	if powerup_in_use and player:
+		match power_up:
+			PowerUpType.SHIELD: player.god_mode = true
+			PowerUpType.BOOST_DURATION: player.extra_boost_duration = true
+			PowerUpType.LAVA_SLOWMO: player.lava_slowmo = true
 
 func activate_powerup() -> void:
-	print("ACTIVATE POWERUP")
-	player.god_mode = true
+	powerup_in_use = true
+	power_up = randi_range(0, POWERUP_COUNT - 1) as PowerUpType
+	timer.start(powerup_duration)
+	print("ACTIVATE POWERUP: " + str(power_up))
 
-func deactivate_powerup(_unused_var: bool) -> void:
+func deactivate_powerup() -> void:
+	timer.stop()
+	powerup_in_use = false
+	
 	player.god_mode = false
+	player.extra_boost_duration = false
+	print("POWERUP DEACTIVATED")

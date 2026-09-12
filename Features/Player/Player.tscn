@@ -39,6 +39,7 @@ position = Vector2(0, -35)
 script = ExtResource("3_6ejaw")
 
 [node name="Timer" type="Timer" parent="PowerUpManager" unique_id=785706354]
+one_shot = true
 
 [node name="PowerUps" type="Node2D" parent="." unique_id=592041100]
 

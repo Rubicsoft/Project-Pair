@@ -5,12 +5,14 @@ class_name Player
 @export_range(0.0, 1000.0, 0.1) var movement_speed := 200.0
 @export_range(0.0, 1.0, 0.01) var gravity_strength := 1.0
 @export_range(0.0, 1000.0, 0.1) var upward_force := 400.0
-@export_range(0.0, 10.0, 0.1)var upward_burst_duration := 0.5
+@export_range(0.0, 10.0, 0.1) var upward_burst_duration := 0.5
 @export_range(1.0, 20.0, 0.1) var movement_smooth_vector := 4.0
-@export_group("")
+@export_group("Visual")
 @export_range(0, 256, 1) var camera_edge := 50
 @export_group("PowerUps")
 @export var god_mode := false
+@export var extra_boost_duration := false
+@export var lava_slowmo := false
 
 @onready var cam_follow_pivot: Node2D = $CameraFreeTransform/CameraFollowPivot
 @onready var camera: Camera2D = $CameraFreeTransform/CameraFollowPivot/Camera2D
@@ -80,7 +82,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y = -(_upward_force)
 	else:
 		_upward_force = 0.0
-		upward_cooldown = upward_burst_duration
+		upward_cooldown = upward_burst_duration * 1.5 if extra_boost_duration else upward_burst_duration
 
 	move_and_slide()
 

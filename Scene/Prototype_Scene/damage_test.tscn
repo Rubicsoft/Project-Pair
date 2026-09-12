@@ -12,8 +12,7 @@
 [node name="GameSceneBundle" parent="." unique_id=1307955083 instance=ExtResource("5_2fdft")]
 
 [node name="Player" parent="." unique_id=1150004504 instance=ExtResource("1_ly5sn")]
-position = Vector2(98, 174)
-upward_burst_duration = 1.0
+position = Vector2(118, 0)
 
 [node name="HolePit" parent="." unique_id=329477807 instance=ExtResource("2_22o66")]
 
@@ -25,14 +24,14 @@ target_position = NodePath("Node2D")
 position = Vector2(201, 0)
 
 [node name="Spiked_MovingPlatform_1" parent="." unique_id=1483960257 node_paths=PackedStringArray("target_position") instance=ExtResource("4_1i5w5")]
-position = Vector2(200, -199)
+position = Vector2(110, -199)
 target_position = NodePath("Node2D")
 
 [node name="Node2D" type="Node2D" parent="Spiked_MovingPlatform_1" unique_id=1510517604]
 position = Vector2(-201, 0)
 
 [node name="Spiked_MovingPlatform_2" parent="." unique_id=1852636326 node_paths=PackedStringArray("target_position") instance=ExtResource("4_1i5w5")]
-position = Vector2(200, -341)
+position = Vector2(110, -341)
 target_position = NodePath("Node2D")
 duration = 0.6
 
