@@ -24,7 +24,7 @@ func _ready() -> void:
 	camera.global_position = global_position
 
 func _process(delta: float) -> void:
-	if camera_follow: cam_follow_pivot.global_position = global_position - Vector2(0.0, camera_edge)
+	if camera_follow: cam_follow_pivot.global_position.y = global_position.y - camera_edge
 
 func _physics_process(delta: float) -> void:
 	# Movement handling
