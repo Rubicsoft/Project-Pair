@@ -80,5 +80,24 @@ theme_override_font_sizes/font_size = 16
 text = "Score: 000"
 horizontal_alignment = 1
 
+[node name="PowerUp" type="Label" parent="HUD_Box/Panel" unique_id=179237983]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -83.5
+offset_top = 67.0
+offset_right = 83.5
+offset_bottom = 99.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 16
+text = "PowerUp: SHIELD"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="HUD_Box/Panel/PowerUp" unique_id=1578013378]
+wait_time = 5.0
+one_shot = true
+ignore_time_scale = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HUD_Box/Panel" unique_id=1363586906]
 libraries/ = SubResource("AnimationLibrary_qdh7y")

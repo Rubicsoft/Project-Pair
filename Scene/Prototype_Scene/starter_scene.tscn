@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://cbbm4t3gdn7ly"]
 
+[ext_resource type="PackedScene" uid="uid://c7bsyjcts350l" path="res://Scene/game_scene_bundle.tscn" id="1_e06gl"]
 [ext_resource type="PackedScene" uid="uid://byew7wk8aw2qh" path="res://Features/Player/Player.tscn" id="1_hrck2"]
 [ext_resource type="Script" uid="uid://dhutyapvfsq1n" path="res://Features/Obstacles/obstacles_manager.gd" id="1_o3ksw"]
 [ext_resource type="PackedScene" uid="uid://7e1njrd8kpv" path="res://Features/HolePit/hole_pit.tscn" id="2_qkpqy"]
@@ -38,6 +39,8 @@ sources/0 = SubResource("TileSetAtlasSource_o3ksw")
 size = Vector2(128, 64)
 
 [node name="StarterScene" type="Node2D" unique_id=1494257243]
+
+[node name="GameSceneBundle" parent="." unique_id=2049666629 instance=ExtResource("1_e06gl")]
 
 [node name="ObstaclesManager" type="Node2D" parent="." unique_id=814958256]
 script = ExtResource("1_o3ksw")
