@@ -16,6 +16,7 @@ class_name Player
 
 @onready var cam_follow_pivot: Node2D = $CameraFreeTransform/CameraFollowPivot
 @onready var camera: Camera2D = $CameraFreeTransform/CameraFollowPivot/Camera2D
+@onready var animplayer: AnimatedSprite2D = $AnimatedSprite2D
 
 var last_ypos := 0.0
 var current_ypos := 0.0
@@ -26,6 +27,7 @@ var movable := true
 var last_direction := 0.0
 var smoothed_direction := 0.0
 var _upward_force := 0.0
+var playing_animsheet := false
 
 
 func _enter_tree() -> void: Global.player = self
@@ -43,7 +45,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if camera_follow: cam_follow_pivot.global_position.y = global_position.y - camera_edge
 	
-	$Sprite2D.flip_h = last_direction > 0.0
+	animplayer.flip_h = last_direction > 0.0
 	
 	if Global.update_score:
 		current_ypos = global_position.y
@@ -52,6 +54,15 @@ func _process(_delta: float) -> void:
 	
 	# POWER UPS
 	$PowerUps/Shield/Sprite2D.visible = god_mode
+	
+	# ANIMATION
+	if not playing_animsheet:
+		animplayer.play("idle")
+	playing_animsheet = false
+	
+	if Input.is_action_pressed("ui_accept") and upward_cooldown > 0.0 and movable:
+		animplayer.play("boost")
+		playing_animsheet = true
 
 func _physics_process(delta: float) -> void:
 	# Movement handling
@@ -96,5 +107,6 @@ func kill_self(immideate_kill: bool) -> void:
 	camera_follow = false
 	Global.update_score = false
 	$CollisionShape2D.disabled = true
+	animplayer.flip_v = true
 	
 	print("PLAYER MATI")

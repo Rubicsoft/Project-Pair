@@ -2,15 +2,45 @@
 
 [ext_resource type="Script" uid="uid://bbdsfmwo5ejga" path="res://Features/Player/Player.gd" id="1_imb0g"]
 [ext_resource type="Script" uid="uid://eh8kcjr620rg" path="res://Features/Player/powerup_manager.gd" id="3_6ejaw"]
-[ext_resource type="Texture2D" uid="uid://ds6ylvjgxlt6t" path="res://Features/Player/Sprites/cat_base.png" id="3_bd6kk"]
+[ext_resource type="Texture2D" uid="uid://dagw2d4p8amol" path="res://Features/Player/Sprites/cat_base_animsheet.png" id="3_llsyq"]
 [ext_resource type="Texture2D" uid="uid://0wxp1upicm6a" path="res://icon.svg" id="4_6ejaw"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6ejaw"]
-atlas = ExtResource("3_bd6kk")
-region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hrck2"]
 height = 26.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4uqpi"]
+atlas = ExtResource("3_llsyq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yu112"]
+atlas = ExtResource("3_llsyq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_llsyq"]
+atlas = ExtResource("3_llsyq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6ejaw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4uqpi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yu112")
+}],
+"loop": true,
+"name": &"boost",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_llsyq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [node name="Player" type="CharacterBody2D" unique_id=1150004504]
 collision_layer = 2
@@ -18,11 +48,14 @@ collision_mask = 5
 script = ExtResource("1_imb0g")
 gravity_strength = 0.75
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=722170488]
-texture = SubResource("AtlasTexture_6ejaw")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1606142966]
 shape = SubResource("CapsuleShape2D_hrck2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1508124716]
+sprite_frames = SubResource("SpriteFrames_6ejaw")
+animation = &"boost"
+autoplay = "idle"
+offset = Vector2(2.05, 1.13)
 
 [node name="CameraFreeTransform" type="Node" parent="." unique_id=1751673237]
 
@@ -46,6 +79,7 @@ one_shot = true
 [node name="Shield" type="Node2D" parent="PowerUps" unique_id=1299842557]
 
 [node name="Sprite2D" type="Sprite2D" parent="PowerUps/Shield" unique_id=1447380363]
+visible = false
 self_modulate = Color(1, 1, 1, 0.24313726)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_6ejaw")
