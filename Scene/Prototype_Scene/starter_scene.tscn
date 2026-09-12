@@ -17,6 +17,172 @@
 [ext_resource type="Resource" uid="uid://bj33rnepxu05s" path="res://Features/Obstacles/obs9_data.tres" id="11_h0cjx"]
 [ext_resource type="Resource" uid="uid://d3p55e4vqt6s2" path="res://Features/Obstacles/obs10_data.tres" id="12_pgcmi"]
 [ext_resource type="Resource" uid="uid://c7upji2tdn4vp" path="res://Features/MovingPlatform/Spiked_MPlatform/spike_Mplatform.tres" id="13_u0rui"]
+[ext_resource type="Script" uid="uid://b7o5ljg1bcsyp" path="res://Features/Lava/lava_burst_manager.gd" id="14_h3xex"]
+[ext_resource type="Texture2D" uid="uid://wanmhlxjxnkh" path="res://Features/Lava/Warning.png" id="15_hvv1g"]
+[ext_resource type="Texture2D" uid="uid://dyw3yi5vylky8" path="res://Features/Lava/lavaBurst.png" id="16_yqe05"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqe05"]
+atlas = ExtResource("15_hvv1g")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blthe"]
+atlas = ExtResource("15_hvv1g")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w63vo"]
+atlas = ExtResource("15_hvv1g")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k3ing"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqe05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blthe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w63vo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3ing"]
+atlas = ExtResource("16_yqe05")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yykhs"]
+atlas = ExtResource("16_yqe05")
+region = Rect2(0, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0cjx"]
+atlas = ExtResource("16_yqe05")
+region = Rect2(0, 64, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgcmi"]
+atlas = ExtResource("16_yqe05")
+region = Rect2(0, 96, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0enm"]
+atlas = ExtResource("16_yqe05")
+region = Rect2(0, 128, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmupn"]
+atlas = ExtResource("16_yqe05")
+region = Rect2(0, 160, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dncb5"]
+atlas = ExtResource("16_yqe05")
+region = Rect2(0, 192, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ljc8"]
+atlas = ExtResource("16_yqe05")
+region = Rect2(0, 224, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ye4jm"]
+atlas = ExtResource("16_yqe05")
+region = Rect2(0, 256, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cg0wo"]
+atlas = ExtResource("16_yqe05")
+region = Rect2(0, 288, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hp6fr"]
+atlas = ExtResource("16_yqe05")
+region = Rect2(0, 320, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aailw"]
+atlas = ExtResource("16_yqe05")
+region = Rect2(0, 352, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnu30"]
+atlas = ExtResource("16_yqe05")
+region = Rect2(0, 384, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f230t"]
+atlas = ExtResource("16_yqe05")
+region = Rect2(0, 416, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4x8du"]
+atlas = ExtResource("16_yqe05")
+region = Rect2(0, 448, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sa1ww"]
+atlas = ExtResource("16_yqe05")
+region = Rect2(0, 480, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykk6f"]
+atlas = ExtResource("16_yqe05")
+region = Rect2(0, 512, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmy3u"]
+atlas = ExtResource("16_yqe05")
+region = Rect2(0, 544, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qw6tp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3ing")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yykhs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0cjx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgcmi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0enm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmupn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dncb5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ljc8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ye4jm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cg0wo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hp6fr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aailw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnu30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f230t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4x8du")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sa1ww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykk6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmy3u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o3ksw"]
 texture = ExtResource("4_d8lkn")
@@ -45,6 +211,22 @@ size = Vector2(128, 64)
 script = ExtResource("1_o3ksw")
 obstacle_pool = Array[ExtResource("2_e06gl")]([ExtResource("3_u0rui"), ExtResource("4_h3xex"), ExtResource("5_hvv1g"), ExtResource("6_yqe05"), ExtResource("7_blthe"), ExtResource("8_w63vo"), ExtResource("9_k3ing"), ExtResource("10_yykhs"), ExtResource("11_h0cjx"), ExtResource("12_pgcmi"), ExtResource("13_u0rui")])
 player_path = NodePath("../Player")
+
+[node name="LavaBurstManager" type="Node2D" parent="." unique_id=1658622798]
+script = ExtResource("14_h3xex")
+player_path = NodePath("../Player")
+
+[node name="LavaBurst" type="Node2D" parent="LavaBurstManager" unique_id=823591855]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="LavaBurstManager/LavaBurst" unique_id=2103149028]
+position = Vector2(0, -56)
+sprite_frames = SubResource("SpriteFrames_k3ing")
+frame_progress = 0.76847476
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="LavaBurstManager/LavaBurst" unique_id=2142153857]
+position = Vector2(165, -57)
+sprite_frames = SubResource("SpriteFrames_qw6tp")
+frame_progress = 0.899182
 
 [node name="Player" parent="." unique_id=1150004504 instance=ExtResource("1_hrck2")]
 
