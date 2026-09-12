@@ -1,19 +1,34 @@
 [gd_scene format=3 uid="uid://byew7wk8aw2qh"]
 
-[ext_resource type="Texture2D" uid="uid://0wxp1upicm6a" path="res://icon.svg" id="1_1r164"]
 [ext_resource type="Script" uid="uid://bbdsfmwo5ejga" path="res://Features/Player/Player.gd" id="1_imb0g"]
+[ext_resource type="Texture2D" uid="uid://ds6ylvjgxlt6t" path="res://Features/Player/Sprites/cat_base.png" id="3_bd6kk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ejaw"]
+atlas = ExtResource("3_bd6kk")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hrck2"]
-radius = 8.0
+height = 26.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1150004504]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_imb0g")
+gravity_strength = 0.75
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1447432991]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_1r164")
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=722170488]
+texture = SubResource("AtlasTexture_6ejaw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1606142966]
 shape = SubResource("CapsuleShape2D_hrck2")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1979516761]
+[node name="CameraFreeTransform" type="Node" parent="." unique_id=1751673237]
+
+[node name="CameraFollowPivot" type="Node2D" parent="CameraFreeTransform" unique_id=1337553192]
+
+[node name="Camera2D" type="Camera2D" parent="CameraFreeTransform/CameraFollowPivot" unique_id=1979516761]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+
+[node name="Marker2D" type="Marker2D" parent="CameraFreeTransform/CameraFollowPivot/Camera2D" unique_id=786885781]
+position = Vector2(0, 194)

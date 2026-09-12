@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cj28cln7es655"]
+
+[ext_resource type="PackedScene" uid="uid://byew7wk8aw2qh" path="res://Features/Player/Player.tscn" id="1_ly5sn"]
+[ext_resource type="PackedScene" uid="uid://7e1njrd8kpv" path="res://Features/HolePit/hole_pit.tscn" id="2_22o66"]
+[ext_resource type="PackedScene" uid="uid://beoouycjsugnv" path="res://Features/MovingPlatform/Static_MPlatform/static_moving_platform.tscn" id="3_22o66"]
+[ext_resource type="PackedScene" uid="uid://duqap5ajh0yxt" path="res://Features/MovingPlatform/Spiked_MPlatform/spiked_moving_platform.tscn" id="4_1i5w5"]
+
+[node name="StarterScene" type="Node2D" unique_id=1494257243]
+
+[node name="Player" parent="." unique_id=1150004504 instance=ExtResource("1_ly5sn")]
+position = Vector2(98, 174)
+
+[node name="HolePit" parent="." unique_id=329477807 instance=ExtResource("2_22o66")]
+
+[node name="Static_MovingPlatform" parent="." unique_id=390947985 node_paths=PackedStringArray("target_position") instance=ExtResource("3_22o66")]
+position = Vector2(0, -16)
+target_position = NodePath("Node2D")
+
+[node name="Node2D" type="Node2D" parent="Static_MovingPlatform" unique_id=1962526654]
+position = Vector2(201, 0)
+
+[node name="Spiked_MovingPlatform" parent="." unique_id=1483960257 node_paths=PackedStringArray("target_position") instance=ExtResource("4_1i5w5")]
+position = Vector2(200, -199)
+target_position = NodePath("Node2D")
+
+[node name="Node2D" type="Node2D" parent="Spiked_MovingPlatform" unique_id=1510517604]
+position = Vector2(-201, 0)
+
+[connection signal="body_entered" from="HolePit/AreaOut" to="HolePit" method="_on_area_out_body_entered"]
+
+[editable path="HolePit"]

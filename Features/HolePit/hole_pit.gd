@@ -29,15 +29,12 @@ func _on_area_in_body_entered(body: Node2D) -> void:
 		return
 		
 	has_spawned = true
-	call_deferred("spawn_next_holepit")
+	call_deferred("spawn_next_holepit")   
 
-func _on_area_out_body_entered(body: Node2D) -> void:
-	print("body keluar")
-	if body.name != "Player":
+func _on_area_out_area_entered(area: Area2D) -> void:
+	print(area)
+	if area.name != "Lava" :
 		return
-	if is_deleting :
-		return
-	is_deleting = true
-	
+		
 	await get_tree().create_timer(1).timeout
 	queue_free()
