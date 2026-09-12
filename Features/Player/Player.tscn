@@ -8,7 +8,6 @@ radius = 8.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1150004504]
 script = ExtResource("1_imb0g")
-gravity_strength = 0.75
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1447432991]
 scale = Vector2(0.125, 0.25)

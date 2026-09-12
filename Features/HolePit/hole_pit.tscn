@@ -7,16 +7,16 @@
 size = Vector2(64, 384)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_twuhu"]
-size = Vector2(1064, 20)
+size = Vector2(664, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3uqjm"]
-size = Vector2(1064, 20)
+size = Vector2(664, 20)
 
 [node name="HolePit" type="Node2D" unique_id=329477807]
 script = ExtResource("1_cdeia")
 
 [node name="LeftWall" type="StaticBody2D" parent="." unique_id=351964598]
-position = Vector2(-500, 0)
+position = Vector2(-300, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="LeftWall" unique_id=1104872523]
 scale = Vector2(0.5, 3)
@@ -26,7 +26,7 @@ texture = ExtResource("1_twuhu")
 shape = SubResource("RectangleShape2D_cdeia")
 
 [node name="RightWall" type="StaticBody2D" parent="." unique_id=1779270608]
-position = Vector2(500, 0)
+position = Vector2(300, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="RightWall" unique_id=1404708614]
 scale = Vector2(0.5, 3)
