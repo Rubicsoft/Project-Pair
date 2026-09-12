@@ -8,7 +8,7 @@
 size = Vector2(64, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w6smb"]
-size = Vector2(64, 14)
+size = Vector2(11, 16)
 
 [node name="Spiked_MovingPlatform" type="Node2D" unique_id=390947985]
 script = ExtResource("1_tv4jx")
@@ -25,6 +25,18 @@ position = Vector2(0, 14.903999)
 scale = Vector2(0.5, 0.11087501)
 texture = ExtResource("2_yoykt")
 
+[node name="Sprite2D3" type="Sprite2D" parent="MovingPlatformBody" unique_id=813496916]
+self_modulate = Color(1, 0, 0, 1)
+position = Vector2(37.5, 0)
+scale = Vector2(0.0859375, 0.125)
+texture = ExtResource("2_yoykt")
+
+[node name="Sprite2D4" type="Sprite2D" parent="MovingPlatformBody" unique_id=904381552]
+self_modulate = Color(1, 0, 0, 1)
+position = Vector2(-37.5, 0)
+scale = Vector2(0.0859375, 0.125)
+texture = ExtResource("2_yoykt")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatformBody" unique_id=1357831243]
 shape = SubResource("RectangleShape2D_g8xu5")
 
@@ -32,5 +44,15 @@ shape = SubResource("RectangleShape2D_g8xu5")
 position = Vector2(0, 15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatformBody/DamageHitbox" unique_id=2052105215]
+shape = SubResource("RectangleShape2D_w6smb")
+debug_color = Color(0.9639903, 0.19251654, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="MovingPlatformBody/DamageHitbox" unique_id=21815549]
+position = Vector2(37.5, -15)
+shape = SubResource("RectangleShape2D_w6smb")
+debug_color = Color(0.9639903, 0.19251654, 1.92523e-07, 0.41960785)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="MovingPlatformBody/DamageHitbox" unique_id=133022297]
+position = Vector2(-37.5, -15)
 shape = SubResource("RectangleShape2D_w6smb")
 debug_color = Color(0.9639903, 0.19251654, 1.92523e-07, 0.41960785)
