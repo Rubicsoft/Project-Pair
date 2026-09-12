@@ -87,17 +87,25 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -159.0
-offset_top = -190.0
-offset_right = 159.0
-offset_bottom = -62.0
+offset_left = -279.0
+offset_top = -209.0
+offset_right = 279.0
+offset_bottom = -45.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/separation = 0
 
 [node name="StartButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1944404451]
 layout_mode = 2
 text = "START GAME"
 flat = true
+
+[node name="HighScore" type="Label" parent="PanelContainer/VBoxContainer" unique_id=2065310464]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "High Score: 000000
+"
+horizontal_alignment = 1
 
 [node name="CreditsButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1200854977]
 layout_mode = 2
@@ -114,10 +122,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 78.0
-offset_top = -177.0
-offset_right = 132.0
-offset_bottom = -104.0
+offset_left = 62.0
+offset_top = -130.0
+offset_right = 116.0
+offset_bottom = -57.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 12
 text = "Neo Dimas

@@ -12,3 +12,6 @@ func _ready() -> void:
 	)
 	$PanelContainer/VBoxContainer/QuitButton.connect("pressed", func() -> void: get_tree().quit())
 	$PanelContainer/VBoxContainer/QuitButton.visible = not OS.has_feature("web")
+	
+	$PanelContainer/VBoxContainer/HighScore.text = "High Score: " + str(Global.high_score) + "\n"
+	#$PanelContainer/VBoxContainer/HighScore.visible = Global.high_score > 0
