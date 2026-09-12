@@ -7,7 +7,7 @@ class_name ObstacleManager
 @export var play_area_width: float = 390.0
 @export var min_gap_width: float = 10.0
 @export var obstacle_margin: float = 50.0
-@export var segment_fill_chance: float = 1
+@export var segment_fill_chance: float = 1.0
 
 @export var min_row_height: float = 1.0
 @export var vertical_margin: float = 10.0
@@ -85,8 +85,8 @@ func fill_segment(segment_start: float, segment_end: float) -> void:
 
 func spawn_obstacle(data: ObstacleData, x: float) -> void:
 	var obstacle: Node2D = data.scene.instantiate()
+	obstacle.position = Vector2(x, next_row_y) - data.center_offset   # set SEBELUM add_child
 	add_child(obstacle)
-	obstacle.global_position = Vector2(x, next_row_y) - data.center_offset
 
 	active_obstacles.append(obstacle)
 	row_max_height = max(row_max_height, data.height)

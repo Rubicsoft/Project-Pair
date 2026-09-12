@@ -1,58 +1,32 @@
 [gd_scene format=3 uid="uid://duqap5ajh0yxt"]
 
 [ext_resource type="Script" uid="uid://cbqij7p5rlhac" path="res://Features/MovingPlatform/moving_platform.gd" id="1_tv4jx"]
-[ext_resource type="Texture2D" uid="uid://0wxp1upicm6a" path="res://icon.svg" id="2_yoykt"]
+[ext_resource type="TileSet" uid="uid://b46po56u03reu" path="res://Features/Obstacles/obstaclesRes.tres" id="2_5lp2p"]
 [ext_resource type="PackedScene" uid="uid://dmfc8bc20yb6p" path="res://Features/DamageHitbox/damage_hitbox.tscn" id="3_5lp2p"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8xu5"]
-size = Vector2(64, 16)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w6smb"]
-size = Vector2(11, 16)
+size = Vector2(58.5, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8xu5"]
+size = Vector2(64, 29)
 
 [node name="Spiked_MovingPlatform" type="Node2D" unique_id=390947985]
 script = ExtResource("1_tv4jx")
 
 [node name="MovingPlatformBody" type="AnimatableBody2D" parent="." unique_id=1778466753]
 
-[node name="Sprite2D" type="Sprite2D" parent="MovingPlatformBody" unique_id=1988365768]
-scale = Vector2(0.5, 0.128)
-texture = ExtResource("2_yoykt")
-
-[node name="Sprite2D2" type="Sprite2D" parent="MovingPlatformBody" unique_id=761520663]
-self_modulate = Color(1, 0, 0, 1)
-position = Vector2(0, 14.903999)
-scale = Vector2(0.5, 0.11087501)
-texture = ExtResource("2_yoykt")
-
-[node name="Sprite2D3" type="Sprite2D" parent="MovingPlatformBody" unique_id=813496916]
-self_modulate = Color(1, 0, 0, 1)
-position = Vector2(37.5, 0)
-scale = Vector2(0.0859375, 0.125)
-texture = ExtResource("2_yoykt")
-
-[node name="Sprite2D4" type="Sprite2D" parent="MovingPlatformBody" unique_id=904381552]
-self_modulate = Color(1, 0, 0, 1)
-position = Vector2(-37.5, 0)
-scale = Vector2(0.0859375, 0.125)
-texture = ExtResource("2_yoykt")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatformBody" unique_id=1357831243]
-shape = SubResource("RectangleShape2D_g8xu5")
+[node name="TileMapLayer" type="TileMapLayer" parent="MovingPlatformBody" unique_id=48136286]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 2, 0, 4, 0, 2, 0, 0, 0, 255, 255, 255, 255, 2, 0, 0, 0, 2, 0, 0, 0, 255, 255, 0, 0, 4, 0, 9, 0, 0, 0, 0, 32, 0, 0, 0, 0, 4, 0, 5, 0, 0, 0, 0, 0)
+tile_set = ExtResource("2_5lp2p")
 
 [node name="DamageHitbox" parent="MovingPlatformBody" unique_id=1793363561 instance=ExtResource("3_5lp2p")]
 position = Vector2(0, 15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatformBody/DamageHitbox" unique_id=2052105215]
+position = Vector2(0.75, -6)
 shape = SubResource("RectangleShape2D_w6smb")
 debug_color = Color(0.9639903, 0.19251654, 1.92523e-07, 0.41960785)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="MovingPlatformBody/DamageHitbox" unique_id=21815549]
-position = Vector2(37.5, -15)
-shape = SubResource("RectangleShape2D_w6smb")
-debug_color = Color(0.9639903, 0.19251654, 1.92523e-07, 0.41960785)
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="MovingPlatformBody/DamageHitbox" unique_id=133022297]
-position = Vector2(-37.5, -15)
-shape = SubResource("RectangleShape2D_w6smb")
-debug_color = Color(0.9639903, 0.19251654, 1.92523e-07, 0.41960785)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingPlatformBody" unique_id=1357831243]
+position = Vector2(0, -17)
+shape = SubResource("RectangleShape2D_g8xu5")

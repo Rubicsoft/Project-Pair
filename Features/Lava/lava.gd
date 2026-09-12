@@ -1,10 +1,10 @@
 extends Area2D
 
 @export var base_speed: float = 10.0        # speed awal / speed minimum saat reset
-@export var max_speed: float = 400.0        # batas atas speed saat akselerasi
-@export var acceleration: float = 40.0      # px/detik^2, nambah speed saat ngejar bebas
+@export var max_speed: float = 100.0        # batas atas speed saat akselerasi
+@export var acceleration: float = 10.0      # px/detik^2, nambah speed saat ngejar bebas
 @export var deceleration: float = 200.0     # px/detik^2, turun speed saat mentok/tertinggal
-@export var screen_margin: float = 40.0
+@export var screen_margin: float = 5.0
 @export var bottom_marker_path: NodePath
 
 var bottom_marker: Marker2D

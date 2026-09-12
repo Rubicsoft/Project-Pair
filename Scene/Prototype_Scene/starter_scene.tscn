@@ -16,6 +16,7 @@
 [ext_resource type="Resource" uid="uid://cqxm160idc466" path="res://Features/Obstacles/obs8_data.tres" id="10_yykhs"]
 [ext_resource type="Resource" uid="uid://bj33rnepxu05s" path="res://Features/Obstacles/obs9_data.tres" id="11_h0cjx"]
 [ext_resource type="Resource" uid="uid://d3p55e4vqt6s2" path="res://Features/Obstacles/obs10_data.tres" id="12_pgcmi"]
+[ext_resource type="Resource" uid="uid://c7upji2tdn4vp" path="res://Features/MovingPlatform/Spiked_MPlatform/spike_Mplatform.tres" id="13_u0rui"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o3ksw"]
 texture = ExtResource("4_d8lkn")
@@ -42,7 +43,7 @@ size = Vector2(128, 64)
 
 [node name="ObstaclesManager" type="Node2D" parent="." unique_id=814958256]
 script = ExtResource("1_o3ksw")
-obstacle_pool = Array[ExtResource("2_e06gl")]([ExtResource("3_u0rui"), ExtResource("4_h3xex"), ExtResource("5_hvv1g"), ExtResource("6_yqe05"), ExtResource("7_blthe"), ExtResource("8_w63vo"), ExtResource("9_k3ing"), ExtResource("10_yykhs"), ExtResource("11_h0cjx"), ExtResource("12_pgcmi")])
+obstacle_pool = Array[ExtResource("2_e06gl")]([ExtResource("3_u0rui"), ExtResource("4_h3xex"), ExtResource("5_hvv1g"), ExtResource("6_yqe05"), ExtResource("7_blthe"), ExtResource("8_w63vo"), ExtResource("9_k3ing"), ExtResource("10_yykhs"), ExtResource("11_h0cjx"), ExtResource("12_pgcmi"), ExtResource("13_u0rui")])
 player_path = NodePath("../Player")
 
 [node name="Player" parent="." unique_id=1150004504 instance=ExtResource("1_hrck2")]
