@@ -1,0 +1,25 @@
+[gd_resource type="Theme" format=3 uid="uid://djdfumrmhfg6d"]
+
+[ext_resource type="FontFile" uid="uid://briyumgttr3it" path="res://Font/Piedra-Regular.ttf" id="1_drjrk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l6b62"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sjbyo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7jh1a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_drjrk"]
+
+[resource]
+default_font = ExtResource("1_drjrk")
+default_font_size = 24
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(1, 1, 0, 1)
+Button/colors/font_hover_color = Color(1, 1, 0, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 4
+Button/styles/focus = SubResource("StyleBoxEmpty_l6b62")
+Button/styles/hover = SubResource("StyleBoxEmpty_sjbyo")
+Button/styles/pressed = SubResource("StyleBoxEmpty_7jh1a")
+Panel/styles/panel = SubResource("StyleBoxEmpty_drjrk")

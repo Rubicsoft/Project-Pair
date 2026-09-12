@@ -1,13 +1,7 @@
 [gd_scene format=3 uid="uid://cokhpq11r18uo"]
 
 [ext_resource type="Script" uid="uid://bfd7nfh5f08n7" path="res://UI/StartMenu/start_menu.gd" id="1_x5yf0"]
-[ext_resource type="FontFile" uid="uid://briyumgttr3it" path="res://Font/Piedra-Regular.ttf" id="2_l6b62"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l6b62"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sjbyo"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7jh1a"]
+[ext_resource type="Theme" uid="uid://djdfumrmhfg6d" path="res://UI/default_theme.tres" id="2_l6b62"]
 
 [sub_resource type="Gradient" id="Gradient_l6b62"]
 colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.27058825)
@@ -18,22 +12,8 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sjbyo"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l6b62"]
 texture = SubResource("GradientTexture2D_7jh1a")
-
-[sub_resource type="Theme" id="Theme_x5yf0"]
-default_font = ExtResource("2_l6b62")
-default_font_size = 24
-Button/colors/font_color = Color(1, 1, 1, 1)
-Button/colors/font_focus_color = Color(1, 1, 0, 1)
-Button/colors/font_hover_color = Color(1, 1, 0, 1)
-Button/colors/font_outline_color = Color(0, 0, 0, 1)
-Button/colors/font_pressed_color = Color(0, 0, 0, 1)
-Button/constants/outline_size = 4
-Button/styles/focus = SubResource("StyleBoxEmpty_l6b62")
-Button/styles/hover = SubResource("StyleBoxEmpty_sjbyo")
-Button/styles/pressed = SubResource("StyleBoxEmpty_7jh1a")
-Panel/styles/panel = SubResource("StyleBoxTexture_sjbyo")
 
 [node name="StartMenu" type="CanvasLayer" unique_id=1729342766]
 layer = 4
@@ -45,7 +25,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_x5yf0")
+theme = ExtResource("2_l6b62")
+theme_override_styles/panel = SubResource("StyleBoxTexture_l6b62")
 
 [node name="Title" type="Label" parent="PanelContainer" unique_id=2108010316]
 layout_mode = 1
@@ -61,7 +42,7 @@ offset_bottom = -63.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 48
-text = "MEOWCANO"
+text = "MEOWKANO"
 
 [node name="Subtitle" type="Label" parent="PanelContainer" unique_id=2080890709]
 layout_mode = 1
