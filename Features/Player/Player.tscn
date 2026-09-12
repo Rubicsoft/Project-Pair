@@ -23,3 +23,6 @@ shape = SubResource("CapsuleShape2D_hrck2")
 [node name="Camera2D" type="Camera2D" parent="CameraFreeTransform/CameraFollowPivot" unique_id=1979516761]
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
+
+[node name="Marker2D" type="Marker2D" parent="CameraFreeTransform/CameraFollowPivot/Camera2D" unique_id=1247137368]
+position = Vector2(0, 162)

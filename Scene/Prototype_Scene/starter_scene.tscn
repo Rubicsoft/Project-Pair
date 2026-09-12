@@ -2,14 +2,37 @@
 
 [ext_resource type="PackedScene" uid="uid://byew7wk8aw2qh" path="res://Features/Player/Player.tscn" id="1_hrck2"]
 [ext_resource type="PackedScene" uid="uid://7e1njrd8kpv" path="res://Features/HolePit/hole_pit.tscn" id="2_qkpqy"]
+[ext_resource type="Script" uid="uid://d11tit6ofmvxk" path="res://Features/Lava/lava.gd" id="3_b65ur"]
+[ext_resource type="Texture2D" uid="uid://0wxp1upicm6a" path="res://icon.svg" id="3_d8lkn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d8lkn"]
+size = Vector2(126.64653, 77)
 
 [node name="StarterScene" type="Node2D" unique_id=1494257243]
 
 [node name="Player" parent="." unique_id=1150004504 instance=ExtResource("1_hrck2")]
 
+[node name="Camera2D" parent="Player/CameraFreeTransform/CameraFollowPivot" parent_id_path=PackedInt32Array(1150004504, 1337553192) index="0" unique_id=1979516761]
+zoom = Vector2(1, 1)
+
 [node name="HolePit" parent="." unique_id=329477807 instance=ExtResource("2_qkpqy")]
 
-[connection signal="body_entered" from="HolePit/AreaOut" to="HolePit" method="_on_area_out_body_entered"]
+[node name="Lava" type="Area2D" parent="." unique_id=1476922171]
+script = ExtResource("3_b65ur")
+bottom_marker_path = NodePath("../Player/CameraFreeTransform/CameraFollowPivot/Camera2D/Marker2D")
+
+[node name="Sprite" type="Sprite2D" parent="Lava" unique_id=1195584481]
+position = Vector2(-1.5258789e-05, 242)
+scale = Vector2(5.1718745, 1)
+texture = ExtResource("3_d8lkn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lava" unique_id=1613089689]
+position = Vector2(0.5, 213.5)
+scale = Vector2(5.1718745, 1)
+shape = SubResource("RectangleShape2D_d8lkn")
+
+[connection signal="area_entered" from="HolePit/AreaOut" to="HolePit" method="_on_area_out_area_entered"]
+[connection signal="body_entered" from="Lava" to="Player" method="_on_lava_body_entered"]
 
 [editable path="Player"]
 [editable path="HolePit"]

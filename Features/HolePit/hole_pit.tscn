@@ -10,7 +10,7 @@ size = Vector2(64, 384)
 size = Vector2(664, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3uqjm"]
-size = Vector2(664, 20)
+size = Vector2(534, 20)
 
 [node name="HolePit" type="Node2D" unique_id=329477807]
 script = ExtResource("1_cdeia")
