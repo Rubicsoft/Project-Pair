@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://7e1njrd8kpv" path="res://Features/HolePit/hole_pit.tscn" id="2_qkpqy"]
 [ext_resource type="PackedScene" uid="uid://brxbv6selcv15" path="res://Features/Lava/lava.tscn" id="3_b65ur"]
 [ext_resource type="PackedScene" uid="uid://073x8ydu6gsd" path="res://Features/Obstacles/obs2.tscn" id="3_qcxhy"]
-[ext_resource type="Texture2D" uid="uid://d3oqdykb3w3jh" path="res://Features/Platform/PlatformSheet.png" id="4_d8lkn"]
+[ext_resource type="Texture2D" uid="uid://d3oqdykb3w3jh" path="res://Features/platform/PlatformSheet.png" id="4_d8lkn"]
 [ext_resource type="PackedScene" uid="uid://co44p7k87hp5a" path="res://Features/Obstacles/obs1.tscn" id="5_o3ksw"]
 [ext_resource type="PackedScene" uid="uid://cvvax8xr5jhc3" path="res://Features/Obstacles/obs6.tscn" id="6_xemry"]
 [ext_resource type="PackedScene" uid="uid://corljrqw8wsvu" path="res://Features/Obstacles/obs3.tscn" id="7_47oh0"]
@@ -46,10 +46,6 @@ player_path = NodePath("../Player")
 lane_x_positions = Array[float]([-170.0, -85.0, 0.0, 85.0, 170.0])
 
 [node name="Player" parent="." unique_id=1150004504 instance=ExtResource("1_hrck2")]
-movement_speed = null
-jump_force = null
-gravity_strength = null
-camera_edge = null
 
 [node name="Lava" parent="." unique_id=896567504 instance=ExtResource("3_b65ur")]
 collision_layer = 4
