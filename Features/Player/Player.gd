@@ -44,6 +44,7 @@ func _process(_delta: float) -> void:
 	if Global.update_score:
 		current_ypos = global_position.y
 		Global.score = int(last_ypos - current_ypos)
+		Global.score = maxi(Global.score, 0)
 	
 	# POWER UPS
 	$PowerUps/Shield/Sprite2D.visible = god_mode
