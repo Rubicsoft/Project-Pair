@@ -1,0 +1,39 @@
+[gd_scene format=4 uid="uid://co44p7k87hp5a"]
+
+[ext_resource type="TileSet" uid="uid://b46po56u03reu" path="res://Features/Obstacles/obstaclesRes.tres" id="1_0j6gr"]
+[ext_resource type="PackedScene" uid="uid://dmfc8bc20yb6p" path="res://Features/DamageHitbox/damage_hitbox.tscn" id="2_k7ey7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0j6gr"]
+size = Vector2(128, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iygqg"]
+size = Vector2(125, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ertn2"]
+size = Vector2(18, 92)
+
+[node name="Obs1" type="StaticBody2D" unique_id=423421801]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1712154553]
+tile_map_data = PackedByteArray("AAAAAAMABAABAAEAAAABAAMABAALAAEAABD//wMABAAPAAEAADACAAAABAAOAAAAAAACAAIABAAQAAAAAAABAAAAAgAEAAIAAAAAAAAAAgACAAIAAAD//wAAAgACAAIAAAD+/wAAAgAAAAIAAAD+/wEAAgAAAAQAAAD+/wIAAgAAAAYAAAD//wIAAgACAAYAAAAAAAIAAgACAAYAAAABAAIAAgAEAAYAAAABAAEAAgAEAAQAAAAAAAEAAgACAAQAAAD//wEAAgACAAQAAAD+/wMABAAEAAAAAAACAAEABAARAAAAAAA=")
+tile_set = ExtResource("1_0j6gr")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=932218960]
+tile_map_data = PackedByteArray("AAAAAAMABAAJAAEAAAABAAMABAARAAEAACD//wMABAAIAAEAAFD+/wMABAAHAAEAAEACAAIABAAHAAEAAAACAAEABAAIAAEAAAACAAAABAAHAAEAAAA=")
+tile_set = ExtResource("1_0j6gr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=347319934]
+position = Vector2(0, 48)
+shape = SubResource("RectangleShape2D_0j6gr")
+
+[node name="DamageHitbox" parent="." unique_id=1793363561 instance=ExtResource("2_k7ey7")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageHitbox" unique_id=1821796317]
+position = Vector2(-0.5, 106.5)
+shape = SubResource("RectangleShape2D_iygqg")
+debug_color = Color(0.99999994, 0.017977003, 0.010558346, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DamageHitbox" unique_id=1279376848]
+position = Vector2(75, 48)
+shape = SubResource("RectangleShape2D_ertn2")
+debug_color = Color(0.99999994, 0.017977003, 0.010558346, 0.41960785)

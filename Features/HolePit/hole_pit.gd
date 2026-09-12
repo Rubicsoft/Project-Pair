@@ -32,7 +32,7 @@ func _on_area_in_body_entered(body: Node2D) -> void:
 	call_deferred("spawn_next_holepit")   
 
 func _on_area_out_area_entered(area: Area2D) -> void:
-	print(area)
+	print("lava masuk")
 	if area.name != "Lava" :
 		return
 		

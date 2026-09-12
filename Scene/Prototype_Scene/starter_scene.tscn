@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://7e1njrd8kpv" path="res://Features/HolePit/hole_pit.tscn" id="2_qkpqy"]
 [ext_resource type="PackedScene" uid="uid://brxbv6selcv15" path="res://Features/Lava/lava.tscn" id="3_b65ur"]
 [ext_resource type="Texture2D" uid="uid://d3oqdykb3w3jh" path="res://Features/platform/PlatformSheet.png" id="4_d8lkn"]
+[ext_resource type="PackedScene" uid="uid://co44p7k87hp5a" path="res://Features/Obstacles/obs1.tscn" id="5_o3ksw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o3ksw"]
 texture = ExtResource("4_d8lkn")
@@ -29,16 +30,28 @@ size = Vector2(128, 64)
 [node name="StarterScene" type="Node2D" unique_id=1494257243]
 
 [node name="Player" parent="." unique_id=1150004504 instance=ExtResource("1_hrck2")]
-collision_layer = 1
-collision_mask = 1
 movement_speed = null
 jump_force = null
 gravity_strength = null
 camera_edge = null
 
 [node name="Lava" parent="." unique_id=896567504 instance=ExtResource("3_b65ur")]
+collision_layer = 4
+collision_mask = 3
 
 [node name="HolePit" parent="." unique_id=329477807 instance=ExtResource("2_qkpqy")]
+
+[node name="LeftWall" parent="HolePit" index="0" unique_id=351964598]
+collision_mask = 2
+
+[node name="RightWall" parent="HolePit" index="1" unique_id=1779270608]
+collision_mask = 2
+
+[node name="AreaIn" parent="HolePit" index="2" unique_id=1222017927]
+collision_mask = 6
+
+[node name="AreaOut" parent="HolePit" index="3" unique_id=2090016401]
+collision_mask = 6
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1850152302]
 
@@ -49,6 +62,9 @@ tile_set = SubResource("TileSet_vuu0q")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=743022217]
 position = Vector2(0, 64)
 shape = SubResource("RectangleShape2D_d8lkn")
+
+[node name="Obs1" parent="." unique_id=423421801 instance=ExtResource("5_o3ksw")]
+position = Vector2(-106, -206)
 
 [connection signal="body_entered" from="Lava" to="Player" method="_on_lava_body_entered"]
 [connection signal="area_entered" from="HolePit/AreaOut" to="HolePit" method="_on_area_out_area_entered"]
