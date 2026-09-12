@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://c7bsyjcts350l" path="res://Scene/game_scene_bundle.tscn" id="5_2fdft"]
 [ext_resource type="PackedScene" uid="uid://cnc4xeqg22ikv" path="res://Features/PowerUps/random_powerup.tscn" id="6_bg1mt"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bg1mt"]
+size = Vector2(420, 12)
+
 [node name="DamageTest" type="Node2D" unique_id=1494257243]
 
 [node name="GameSceneBundle" parent="." unique_id=1307955083 instance=ExtResource("5_2fdft")]
@@ -40,6 +43,12 @@ position = Vector2(-201, 0)
 
 [node name="Random_PowerUp" parent="." unique_id=214980479 instance=ExtResource("6_bg1mt")]
 position = Vector2(158, -86)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=546016871]
+position = Vector2(0, 101)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1090970830]
+shape = SubResource("RectangleShape2D_bg1mt")
 
 [connection signal="body_entered" from="HolePit/AreaOut" to="HolePit" method="_on_area_out_body_entered"]
 

@@ -22,6 +22,7 @@ var current_ypos := 0.0
 var camera_follow := true
 var upward_cooldown := 0.0
 var direction := 0.0
+var movable := true
 var last_direction := 0.0
 var smoothed_direction := 0.0
 var _upward_force := 0.0
@@ -34,7 +35,7 @@ func _ready() -> void:
 	EventBus.connect("kill_player", kill_self)
 	
 	cam_follow_pivot.global_position = global_position
-	camera.global_position = global_position
+	#camera.global_position = global_position
 	
 	last_ypos = global_position.y
 	upward_cooldown = upward_burst_duration
@@ -56,7 +57,7 @@ func _physics_process(delta: float) -> void:
 	# Movement handling
 	direction = signf(Input.get_axis("move_left", "move_right"))
 	smoothed_direction = lerpf(smoothed_direction, direction, delta * movement_smooth_vector)
-	if direction:
+	if direction and movable:
 		last_direction = direction
 		if is_on_floor():
 			velocity.x = direction * movement_speed
@@ -75,7 +76,7 @@ func _physics_process(delta: float) -> void:
 	# Upward burst mechanic
 	if is_on_ceiling() or is_on_floor():
 		_upward_force = 0.0
-	if Input.is_action_pressed("ui_accept"):
+	if Input.is_action_pressed("ui_accept") and movable:
 		upward_cooldown -= delta
 		if upward_cooldown > 0.0:
 			_upward_force += upward_force * delta
@@ -89,4 +90,11 @@ func _physics_process(delta: float) -> void:
 
 func kill_self(immideate_kill: bool) -> void:
 	if god_mode and not immideate_kill: return
+	
+	movable = false
+	velocity.x = move_toward(velocity.x, 0, movement_speed * get_physics_process_delta_time() * 4.0)
+	camera_follow = false
+	Global.update_score = false
+	$CollisionShape2D.disabled = true
+	
 	print("PLAYER MATI")
