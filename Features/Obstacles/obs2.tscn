@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dmfc8bc20yb6p" path="res://Features/DamageHitbox/damage_hitbox.tscn" id="2_fhjss"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0j6gr"]
-size = Vector2(223, 32)
+size = Vector2(223, 29)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iygqg"]
 size = Vector2(221.5, 17.5)
@@ -20,7 +20,7 @@ tile_map_data = PackedByteArray("AAACAAEABAADAAAAAAABAAEABAAFAAAAAAAAAAEABAADAAA
 tile_set = ExtResource("1_hwth2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=347319934]
-position = Vector2(47.5, 16)
+position = Vector2(47.5, 17.5)
 shape = SubResource("RectangleShape2D_0j6gr")
 
 [node name="DamageHitbox" parent="." unique_id=1793363561 instance=ExtResource("2_fhjss")]

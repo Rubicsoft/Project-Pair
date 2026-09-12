@@ -1,0 +1,47 @@
+[gd_scene format=4 uid="uid://b7xy7fofjxg4a"]
+
+[ext_resource type="TileSet" uid="uid://b46po56u03reu" path="res://Features/Obstacles/obstaclesRes.tres" id="1_gqreg"]
+[ext_resource type="PackedScene" uid="uid://dmfc8bc20yb6p" path="res://Features/DamageHitbox/damage_hitbox.tscn" id="2_xnhvh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0j6gr"]
+size = Vector2(159, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebwip"]
+size = Vector2(62, 30.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iygqg"]
+size = Vector2(17.375, 17.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sx0ch"]
+size = Vector2(16.84375, 58.75)
+
+[node name="Obs1" type="StaticBody2D" unique_id=423421801]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1712154553]
+tile_map_data = PackedByteArray("AAAAAAAAAgACAAIAAAD//wAAAgACAAIAAAABAAAAAgACAAIAAAACAAAAAgAEAAIAAAD+/wEAAgAAAAQAAAD//wEAAgACAAQAAAD9/wEABAAHAAAAAAD+/wAAAgAAAAIAAAD9/wAABAAEAAEAAAADAAAABAAGAAEAAAA=")
+tile_set = ExtResource("1_gqreg")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=932218960]
+tile_map_data = PackedByteArray("AAD9/wAABAADAAEAAAADAAAABAAQAAAAAAA=")
+tile_set = ExtResource("1_gqreg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=347319934]
+position = Vector2(15.5, 16.5)
+shape = SubResource("RectangleShape2D_0j6gr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=695160832]
+position = Vector2(-32, 46.625)
+shape = SubResource("RectangleShape2D_ebwip")
+
+[node name="DamageHitbox" parent="." unique_id=1793363561 instance=ExtResource("2_xnhvh")]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageHitbox" unique_id=1821796317]
+position = Vector2(106.3125, 10)
+shape = SubResource("RectangleShape2D_iygqg")
+debug_color = Color(0.99999994, 0.017977003, 0.010558346, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DamageHitbox" unique_id=1936945359]
+position = Vector2(-73.578125, 31.375)
+shape = SubResource("RectangleShape2D_sx0ch")
+debug_color = Color(0.99999994, 0.017977003, 0.010558346, 0.41960785)
