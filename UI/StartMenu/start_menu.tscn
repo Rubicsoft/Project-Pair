@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://cokhpq11r18uo"]
+
+[ext_resource type="Script" uid="uid://bfd7nfh5f08n7" path="res://UI/StartMenu/start_menu.gd" id="1_x5yf0"]
+[ext_resource type="FontFile" uid="uid://briyumgttr3it" path="res://Font/Piedra-Regular.ttf" id="2_l6b62"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l6b62"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sjbyo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7jh1a"]
+
+[sub_resource type="Gradient" id="Gradient_l6b62"]
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.27058825)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7jh1a"]
+gradient = SubResource("Gradient_l6b62")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sjbyo"]
+texture = SubResource("GradientTexture2D_7jh1a")
+
+[sub_resource type="Theme" id="Theme_x5yf0"]
+default_font = ExtResource("2_l6b62")
+default_font_size = 24
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(1, 1, 0, 1)
+Button/colors/font_hover_color = Color(1, 1, 0, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 4
+Button/styles/focus = SubResource("StyleBoxEmpty_l6b62")
+Button/styles/hover = SubResource("StyleBoxEmpty_sjbyo")
+Button/styles/pressed = SubResource("StyleBoxEmpty_7jh1a")
+Panel/styles/panel = SubResource("StyleBoxTexture_sjbyo")
+
+[node name="StartMenu" type="CanvasLayer" unique_id=1729342766]
+layer = 4
+script = ExtResource("1_x5yf0")
+
+[node name="PanelContainer" type="Panel" parent="." unique_id=987772593]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_x5yf0")
+
+[node name="Title" type="Label" parent="PanelContainer" unique_id=2108010316]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.0
+offset_top = -126.0
+offset_right = 122.0
+offset_bottom = -63.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "MEOWCANO"
+
+[node name="Subtitle" type="Label" parent="PanelContainer" unique_id=2080890709]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.0
+offset_top = -71.0
+offset_right = 122.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 18
+text = "Gamejam Internal 2026 GT"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1340144132]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -159.0
+offset_top = -190.0
+offset_right = 159.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="StartButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1944404451]
+layout_mode = 2
+text = "START GAME"
+flat = true
+
+[node name="CreditsButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1200854977]
+layout_mode = 2
+text = "CREDITS"
+flat = true
+
+[node name="QuitButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=2070735999]
+layout_mode = 2
+text = "QUIT"
+flat = true
+
+[node name="Credits" type="Label" parent="PanelContainer" unique_id=1587179393]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 78.0
+offset_top = -177.0
+offset_right = 132.0
+offset_bottom = -104.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 12
+text = "Neo Dimas
+Reyhan Abi
+Rafee
+Afif"
+
+[node name="FadeIn" type="ColorRect" parent="." unique_id=1734134786]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
