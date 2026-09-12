@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://es5dadp7nd2u"]
+
+[ext_resource type="TileSet" uid="uid://b46po56u03reu" path="res://Features/Obstacles/obstaclesRes.tres" id="1_tfu0r"]
+[ext_resource type="PackedScene" uid="uid://dmfc8bc20yb6p" path="res://Features/DamageHitbox/damage_hitbox.tscn" id="2_1lsvk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebwip"]
+size = Vector2(28.5, 59.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tfu0r"]
+size = Vector2(28.5, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iygqg"]
+size = Vector2(17.5, 28)
+
+[node name="Obs1" type="StaticBody2D" unique_id=423421801]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1712154553]
+tile_map_data = PackedByteArray(0, 0, 255, 255, 1, 0, 2, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 6, 0, 0, 80, 0, 0, 1, 0, 2, 0, 2, 0, 4, 0, 0, 0, 254, 255, 1, 0, 4, 0, 4, 0, 1, 0, 0, 0)
+tile_set = ExtResource("1_tfu0r")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=932218960]
+tile_map_data = PackedByteArray(0, 0, 254, 255, 1, 0, 4, 0, 13, 0, 1, 0, 0, 0)
+tile_set = ExtResource("1_tfu0r")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=695160832]
+position = Vector2(16, 32.25)
+shape = SubResource("RectangleShape2D_ebwip")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=1902846031]
+position = Vector2(-15, 48)
+shape = SubResource("RectangleShape2D_tfu0r")
+
+[node name="DamageHitbox" parent="." unique_id=1793363561 instance=ExtResource("2_1lsvk")]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageHitbox" unique_id=1821796317]
+position = Vector2(-43, 48)
+shape = SubResource("RectangleShape2D_iygqg")
+debug_color = Color(0.99999994, 0.017977003, 0.010558346, 0.41960785)
