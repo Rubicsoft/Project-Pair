@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bytxk2vmiv8ws" path="res://Features/Lava/lavaAnim.png" id="2_x8qlx"]
 [ext_resource type="AudioStream" uid="uid://brvk1lhcbopt2" path="res://Features/Lava/lavaDeath.mp3" id="3_t56d5"]
 [ext_resource type="AudioStream" uid="uid://v1kn5dwihbld" path="res://Features/Lava/lavaBG.mp3" id="4_l2eiu"]
+[ext_resource type="Texture2D" uid="uid://cjii0ees6g4v6" path="res://Features/Lava/particle.png" id="5_kue1c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t56d5"]
 texture = ExtResource("2_x8qlx")
@@ -51,6 +52,9 @@ sources/1 = SubResource("TileSetAtlasSource_t56d5")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d8lkn"]
 size = Vector2(111.37161, 51)
 
+[sub_resource type="Gradient" id="Gradient_kue1c"]
+colors = PackedColorArray(0.92941177, 0.33333334, 0.011764706, 1, 0.45031446, 0, 0.103727974, 1)
+
 [node name="Lava" type="Area2D" unique_id=896567504]
 script = ExtResource("1_x8qlx")
 bottom_marker_path = NodePath("../Player/CameraFreeTransform/CameraFollowPivot/Camera2D/Marker2D")
@@ -73,3 +77,19 @@ stream = ExtResource("4_l2eiu")
 autoplay = true
 max_distance = 150.0
 parameters/looping = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1568845666]
+position = Vector2(0, 178)
+amount = 10
+texture = ExtResource("5_kue1c")
+lifetime = 1.5
+explosiveness = 0.3
+use_fixed_seed = true
+seed = 3904215478
+emission_shape = 3
+emission_rect_extents = Vector2(250, 1)
+direction = Vector2(0, -1)
+gravity = Vector2(0, 100)
+initial_velocity_min = 60.0
+initial_velocity_max = 63.0
+color_ramp = SubResource("Gradient_kue1c")
