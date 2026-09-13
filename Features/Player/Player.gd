@@ -107,6 +107,7 @@ func kill_self(immideate_kill: bool) -> void:
 	velocity.x = move_toward(velocity.x, 0, movement_speed * get_physics_process_delta_time() * 4.0)
 	camera_follow = false
 	Global.update_score = false
+	if Global.score > Global.high_score: Global.high_score = Global.score
 	$CollisionShape2D.disabled = true
 	animplayer.flip_v = true
 	
