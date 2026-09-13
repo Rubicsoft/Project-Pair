@@ -2,9 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://bx6rd37tfy7j2" path="res://UI/HUD/hud.tscn" id="1_pq5jy"]
 [ext_resource type="PackedScene" uid="uid://cokhpq11r18uo" path="res://UI/StartMenu/start_menu.tscn" id="2_gne17"]
+[ext_resource type="PackedScene" uid="uid://cx5m841453ajc" path="res://UI/CRT/crt.tscn" id="3_7lwhg"]
 
 [node name="GameSceneBundle" type="Node" unique_id=2049666629]
 
 [node name="HUD" parent="." unique_id=421391240 instance=ExtResource("1_pq5jy")]
 
 [node name="StartMenu" parent="." unique_id=1729342766 instance=ExtResource("2_gne17")]
+
+[node name="CRT" parent="." unique_id=468806767 instance=ExtResource("3_7lwhg")]

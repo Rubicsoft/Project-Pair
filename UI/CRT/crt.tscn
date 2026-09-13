@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cx5m841453ajc"]
+
+[ext_resource type="Shader" uid="uid://dy5sibcr4odph" path="res://UI/CRT/crt_shader.gdshader" id="1_clnlt"]
+[ext_resource type="Script" uid="uid://dqyutbcb7a2q6" path="res://UI/CRT/crt.gd" id="1_lru8n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_swfm6"]
+shader = ExtResource("1_clnlt")
+shader_parameter/height = 180.0
+shader_parameter/scan_line_amount = 0.5
+shader_parameter/scroll_speed = 1.0
+shader_parameter/warp_amount = 0.05
+shader_parameter/chroma_strength = 1.0
+shader_parameter/brightness_boost = 1.2
+shader_parameter/real_time = 0.0
+
+[node name="CRT" type="CanvasLayer" unique_id=468806767]
+layer = 4
+script = ExtResource("1_lru8n")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1580544123]
+material = SubResource("ShaderMaterial_swfm6")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
