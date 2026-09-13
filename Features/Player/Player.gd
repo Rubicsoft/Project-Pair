@@ -93,9 +93,11 @@ func _physics_process(delta: float) -> void:
 		if upward_cooldown > 0.0:
 			_upward_force += upward_force * delta
 			velocity.y = -(_upward_force)
+			$Sounds/Jetpack.playing = true
 	else:
 		_upward_force = 0.0
 		upward_cooldown = upward_burst_duration * 1.5 if extra_boost_duration else upward_burst_duration
+		$Sounds/Jetpack.playing = false
 
 	move_and_slide()
 
@@ -110,6 +112,7 @@ func kill_self(immideate_kill: bool) -> void:
 	if Global.score > Global.high_score: Global.high_score = Global.score
 	$CollisionShape2D.disabled = true
 	animplayer.flip_v = true
+	$Sounds/CatDeath.play()
 	await get_tree().create_timer(3).timeout
 	Global.game_start = false
 	

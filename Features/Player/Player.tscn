@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://dagw2d4p8amol" path="res://Features/Player/Sprites/cat_base_animsheet.png" id="3_llsyq"]
 [ext_resource type="Texture2D" uid="uid://dhhaftypy7g2n" path="res://Features/Player/Sprites/bubble-sheet.png" id="4_6ejaw"]
 [ext_resource type="AudioStream" uid="uid://7rcoh7n4g83" path="res://Features/PowerUps/pickup.mp3" id="4_llsyq"]
+[ext_resource type="AudioStream" uid="uid://cf0bff710edrb" path="res://Features/Player/Sounds/cat_death.wav" id="6_wlwl2"]
+[ext_resource type="AudioStream" uid="uid://c0myvimmo4q00" path="res://Features/Player/Sounds/jetpack.wav" id="7_4uqpi"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hrck2"]
 height = 26.0
@@ -90,3 +92,11 @@ texture = ExtResource("4_6ejaw")
 
 [node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=360933531]
 current = true
+
+[node name="Sounds" type="Node" parent="." unique_id=1792595237]
+
+[node name="CatDeath" type="AudioStreamPlayer" parent="Sounds" unique_id=110366941]
+stream = ExtResource("6_wlwl2")
+
+[node name="Jetpack" type="AudioStreamPlayer" parent="Sounds" unique_id=193653280]
+stream = ExtResource("7_4uqpi")
