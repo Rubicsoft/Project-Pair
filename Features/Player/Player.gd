@@ -61,7 +61,7 @@ func _process(_delta: float) -> void:
 		animplayer.play("idle")
 	playing_animsheet = false
 	
-	if Input.is_action_pressed("ui_accept") and upward_cooldown > 0.0 and movable:
+	if Input.is_action_pressed("ui_accept") and upward_cooldown > 0.0 and movable and Global.game_start:
 		animplayer.play("boost")
 		playing_animsheet = true
 
@@ -69,7 +69,7 @@ func _physics_process(delta: float) -> void:
 	# Movement handling
 	direction = signf(Input.get_axis("move_left", "move_right"))
 	smoothed_direction = lerpf(smoothed_direction, direction, delta * movement_smooth_vector)
-	if direction and movable:
+	if direction and movable and Global.game_start:
 		last_direction = direction
 		if is_on_floor():
 			velocity.x = direction * movement_speed
@@ -88,7 +88,7 @@ func _physics_process(delta: float) -> void:
 	# Upward burst mechanic
 	if is_on_ceiling() or is_on_floor():
 		_upward_force = 0.0
-	if Input.is_action_pressed("ui_accept") and movable:
+	if Input.is_action_pressed("ui_accept") and movable and Global.game_start:
 		upward_cooldown -= delta
 		if upward_cooldown > 0.0:
 			_upward_force += upward_force * delta

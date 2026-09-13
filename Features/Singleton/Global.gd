@@ -2,6 +2,7 @@ extends Node
 
 var player: Player
 
+var game_start := true
 var score := 0
 var update_score := true
 var high_score := 0
