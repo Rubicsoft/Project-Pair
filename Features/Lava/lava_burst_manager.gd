@@ -8,8 +8,8 @@ class_name LavaBurstManager
 @export var min_spawn_interval: float = 2.0
 @export var max_spawn_interval: float = 5.0
 
-@export var vertical_spawn_offset_min: float = 300.0   # jarak minimal di atas player saat spawn
-@export var vertical_spawn_offset_max: float = 600.0   # jarak maksimal di atas player saat spawn
+@export var vertical_spawn_offset_min: float = 50.0    # jarak minimal di atas player saat spawn
+@export var vertical_spawn_offset_max: float = 100.0   # jarak maksimal di atas player saat spawn
 
 var player: Node2D
 var time_until_next_spawn: float = 0.0
