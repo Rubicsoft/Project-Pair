@@ -16,6 +16,7 @@ class_name Player
 @onready var cam_follow_pivot: Node2D = $CameraFreeTransform/CameraFollowPivot
 @onready var camera: Camera2D = $CameraFreeTransform/CameraFollowPivot/Camera2D
 @onready var animplayer: AnimatedSprite2D = $AnimatedSprite2D
+@onready var particles: CPUParticles2D = $CPUParticles2D
 
 var last_ypos := 0.0
 var current_ypos := 0.0
@@ -89,6 +90,7 @@ func _physics_process(delta: float) -> void:
 	if is_on_ceiling() or is_on_floor():
 		_upward_force = 0.0
 	if Input.is_action_pressed("ui_accept") and movable and Global.game_start:
+		particles.emitting = true
 		upward_cooldown -= delta
 		if upward_cooldown > 0.0:
 			_upward_force += upward_force * delta

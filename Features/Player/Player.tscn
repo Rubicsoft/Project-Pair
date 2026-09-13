@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://dhhaftypy7g2n" path="res://Features/Player/Sprites/bubble-sheet.png" id="4_6ejaw"]
 [ext_resource type="AudioStream" uid="uid://7rcoh7n4g83" path="res://Features/PowerUps/pickup.mp3" id="4_llsyq"]
 
+[sub_resource type="Gradient" id="Gradient_llsyq"]
+colors = PackedColorArray(1, 0.7921569, 0.043137256, 1, 0.48235294, 0.14509805, 0.02745098, 1)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hrck2"]
 height = 26.0
 
@@ -48,6 +51,24 @@ collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_imb0g")
 gravity_strength = 0.75
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2100033415]
+position = Vector2(4, 7)
+emitting = false
+amount = 100
+lifetime = 0.2
+one_shot = true
+speed_scale = 0.5
+explosiveness = 0.1
+randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 5.01
+direction = Vector2(0, 1)
+spread = 70.0
+gravity = Vector2(0, 600)
+initial_velocity_min = 80.65
+initial_velocity_max = 92.35
+color_ramp = SubResource("Gradient_llsyq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1606142966]
 shape = SubResource("CapsuleShape2D_hrck2")
