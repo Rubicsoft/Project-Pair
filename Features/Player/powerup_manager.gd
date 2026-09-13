@@ -4,6 +4,7 @@ extends Node
 
 @onready var timer: Timer = $Timer
 @onready var player: Player = $".."
+@onready var sfx: AudioStreamPlayer2D = $SFX
 
 enum PowerUpType {
 	SHIELD, 
@@ -30,6 +31,7 @@ func _process(_delta: float) -> void:
 	Global.powerup_timer = timer.time_left
 
 func activate_powerup() -> void:
+	sfx.play()
 	powerup_in_use = true
 	power_up = randi_range(0, POWERUP_COUNT - 1) as PowerUpType
 	EventBus.emit_signal("powerup_index", power_up)

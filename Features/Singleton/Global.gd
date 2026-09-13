@@ -11,6 +11,6 @@ var powerup_timer := 0.0
 
 func reset_global_vars() -> void:
 	score = 0
-	var lava_slowmo := false
+	lava_slowmo = false
 	powerup_timer = 0.0
 	update_score = true

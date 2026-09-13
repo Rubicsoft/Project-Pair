@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3oqdykb3w3jh"
-path="res://.godot/imported/PlatformSheet.png-0a301b481af8d561125acc78cb66fa55.ctex"
+uid="uid://bubs6au235g1r"
+path="res://.godot/imported/powerup.png-39efba6067946b58bbd6562ae8f38c38.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Features/platform/PlatformSheet.png"
-dest_files=["res://.godot/imported/PlatformSheet.png-0a301b481af8d561125acc78cb66fa55.ctex"]
+source_file="res://Features/PowerUps/powerup.png"
+dest_files=["res://.godot/imported/powerup.png-39efba6067946b58bbd6562ae8f38c38.ctex"]
 
 [params]
 
