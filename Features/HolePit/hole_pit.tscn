@@ -54,6 +54,9 @@ size = Vector2(396, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3uqjm"]
 size = Vector2(395, 20)
 
+[sub_resource type="Gradient" id="Gradient_3uqjm"]
+colors = PackedColorArray(1, 1, 1, 0.69411767, 0.16206557, 0.1620656, 0.16206557, 0.5803922)
+
 [node name="HolePit" type="Node2D" unique_id=329477807]
 script = ExtResource("1_cdeia")
 
@@ -104,5 +107,19 @@ collision_mask = 7
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaOut" unique_id=1906828633]
 position = Vector2(0.5, -182)
 shape = SubResource("RectangleShape2D_3uqjm")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1074083455]
+position = Vector2(-4, -264)
+amount = 20
+lifetime = 8.0
+local_coords = true
+emission_shape = 3
+emission_rect_extents = Vector2(180, 450)
+direction = Vector2(0, -1)
+spread = 90.0
+gravity = Vector2(0, 1)
+initial_velocity_min = 1.0
+initial_velocity_max = 5.0
+color_ramp = SubResource("Gradient_3uqjm")
 
 [connection signal="body_entered" from="AreaIn" to="." method="_on_area_in_body_entered"]
