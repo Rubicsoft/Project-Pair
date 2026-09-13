@@ -3,19 +3,23 @@
 [ext_resource type="PackedScene" uid="uid://c7bsyjcts350l" path="res://Scene/game_scene_bundle.tscn" id="1_e06gl"]
 [ext_resource type="PackedScene" uid="uid://byew7wk8aw2qh" path="res://Features/Player/Player.tscn" id="1_hrck2"]
 [ext_resource type="Script" uid="uid://dhutyapvfsq1n" path="res://Features/Obstacles/obstacles_manager.gd" id="1_o3ksw"]
+[ext_resource type="Script" uid="uid://bouifvglww5dd" path="res://Features/Obstacles/obstacle_data.gd" id="2_e06gl"]
 [ext_resource type="PackedScene" uid="uid://7e1njrd8kpv" path="res://Features/HolePit/hole_pit.tscn" id="2_qkpqy"]
 [ext_resource type="PackedScene" uid="uid://brxbv6selcv15" path="res://Features/Lava/lava.tscn" id="3_b65ur"]
-[ext_resource type="PackedScene" uid="uid://073x8ydu6gsd" path="res://Features/Obstacles/obs2.tscn" id="3_qcxhy"]
-[ext_resource type="Texture2D" uid="uid://d3oqdykb3w3jh" path="res://Features/platform/PlatformSheet.png" id="4_d8lkn"]
-[ext_resource type="PackedScene" uid="uid://co44p7k87hp5a" path="res://Features/Obstacles/obs1.tscn" id="5_o3ksw"]
-[ext_resource type="PackedScene" uid="uid://cvvax8xr5jhc3" path="res://Features/Obstacles/obs6.tscn" id="6_xemry"]
-[ext_resource type="PackedScene" uid="uid://corljrqw8wsvu" path="res://Features/Obstacles/obs3.tscn" id="7_47oh0"]
-[ext_resource type="PackedScene" uid="uid://by8dtnovvi4jb" path="res://Features/Obstacles/obs7.tscn" id="8_e06gl"]
-[ext_resource type="PackedScene" uid="uid://jtld3htbb0bv" path="res://Features/Obstacles/obs4.tscn" id="8_qn8by"]
-[ext_resource type="PackedScene" uid="uid://b7xy7fofjxg4a" path="res://Features/Obstacles/obs5.tscn" id="9_hgeap"]
-[ext_resource type="PackedScene" uid="uid://cg1h1frygr4j" path="res://Features/Obstacles/obs8.tscn" id="9_u0rui"]
-[ext_resource type="PackedScene" uid="uid://es5dadp7nd2u" path="res://Features/Obstacles/obs9.tscn" id="10_h3xex"]
-[ext_resource type="PackedScene" uid="uid://bigei2uuhj08b" path="res://Features/Obstacles/obs10.tscn" id="11_hvv1g"]
+[ext_resource type="Resource" uid="uid://cmrpgy4qkibn4" path="res://Features/Obstacles/obs1_data.tres" id="3_u0rui"]
+[ext_resource type="Texture2D" uid="uid://d3oqdykb3w3jh" path="res://Features/Platform/PlatformSheet.png" id="4_d8lkn"]
+[ext_resource type="Resource" uid="uid://dpo2wg5auxxuj" path="res://Features/Obstacles/obs2_data.tres" id="4_h3xex"]
+[ext_resource type="Resource" uid="uid://bqf3unot8dwg6" path="res://Features/Obstacles/obs3_data.tres" id="5_hvv1g"]
+[ext_resource type="Resource" uid="uid://ca4crqjady24q" path="res://Features/Obstacles/obs4_data.tres" id="6_yqe05"]
+[ext_resource type="Resource" uid="uid://bh022eecv7ved" path="res://Features/Obstacles/obs5_data.tres" id="7_blthe"]
+[ext_resource type="Resource" uid="uid://bbalbdhry2col" path="res://Features/Obstacles/obs6_data.tres" id="8_w63vo"]
+[ext_resource type="Resource" uid="uid://blnw5hx248o52" path="res://Features/Obstacles/obs7_data.tres" id="9_k3ing"]
+[ext_resource type="Resource" uid="uid://cqxm160idc466" path="res://Features/Obstacles/obs8_data.tres" id="10_yykhs"]
+[ext_resource type="Resource" uid="uid://bj33rnepxu05s" path="res://Features/Obstacles/obs9_data.tres" id="11_h0cjx"]
+[ext_resource type="Resource" uid="uid://d3p55e4vqt6s2" path="res://Features/Obstacles/obs10_data.tres" id="12_pgcmi"]
+[ext_resource type="Resource" uid="uid://c7upji2tdn4vp" path="res://Features/MovingPlatform/Spiked_MPlatform/spike_Mplatform.tres" id="13_u0rui"]
+[ext_resource type="Script" uid="uid://b7o5ljg1bcsyp" path="res://Features/Lava/lava_burst_manager.gd" id="14_h3xex"]
+[ext_resource type="PackedScene" uid="uid://cbelu7m0udgvy" path="res://Features/Lava/lava_burst.tscn" id="15_hvv1g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o3ksw"]
 texture = ExtResource("4_d8lkn")
@@ -44,9 +48,13 @@ size = Vector2(128, 64)
 
 [node name="ObstaclesManager" type="Node2D" parent="." unique_id=814958256]
 script = ExtResource("1_o3ksw")
-obstacle_scenes = Array[PackedScene]([ExtResource("5_o3ksw"), ExtResource("3_qcxhy"), ExtResource("7_47oh0"), ExtResource("8_qn8by"), ExtResource("9_hgeap"), ExtResource("6_xemry"), ExtResource("8_e06gl"), ExtResource("9_u0rui"), ExtResource("10_h3xex"), ExtResource("11_hvv1g")])
+obstacle_pool = Array[ExtResource("2_e06gl")]([ExtResource("3_u0rui"), ExtResource("4_h3xex"), ExtResource("5_hvv1g"), ExtResource("6_yqe05"), ExtResource("7_blthe"), ExtResource("8_w63vo"), ExtResource("9_k3ing"), ExtResource("10_yykhs"), ExtResource("11_h0cjx"), ExtResource("12_pgcmi"), ExtResource("13_u0rui")])
 player_path = NodePath("../Player")
-lane_x_positions = Array[float]([-170.0, -85.0, 0.0, 85.0, 170.0])
+
+[node name="LavaBurstManager" type="Node2D" parent="." unique_id=1658622798]
+script = ExtResource("14_h3xex")
+hazard_scene = ExtResource("15_hvv1g")
+player_path = NodePath("../Player")
 
 [node name="Player" parent="." unique_id=1150004504 instance=ExtResource("1_hrck2")]
 

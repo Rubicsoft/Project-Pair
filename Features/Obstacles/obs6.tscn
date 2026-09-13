@@ -12,6 +12,9 @@ size = Vector2(60.5, 33)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iygqg"]
 size = Vector2(183, 17.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2sw3r"]
+size = Vector2(58, 17.5)
+
 [node name="Obs1" type="StaticBody2D" unique_id=423421801]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1712154553]
@@ -36,4 +39,9 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageHitbox" unique_id=1821796317]
 position = Vector2(-1.5, 74)
 shape = SubResource("RectangleShape2D_iygqg")
+debug_color = Color(0.99999994, 0.017977003, 0.010558346, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="DamageHitbox" unique_id=202414278]
+position = Vector2(-1, -8)
+shape = SubResource("RectangleShape2D_2sw3r")
 debug_color = Color(0.99999994, 0.017977003, 0.010558346, 0.41960785)
