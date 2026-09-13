@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" format=3 uid="uid://b46po56u03reu"]
 
-[ext_resource type="Texture2D" uid="uid://d3oqdykb3w3jh" path="res://Features/platform/PlatformSheet.png" id="1_cds4d"]
+[ext_resource type="Texture2D" uid="uid://d3oqdykb3w3jh" path="res://Features/Platform/PlatformSheet.png" id="1_cds4d"]
 [ext_resource type="Texture2D" uid="uid://b1s1y6xwwuvj4" path="res://Features/Obstacles/obstaclesSheet.png" id="2_ea2ki"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kjvoc"]

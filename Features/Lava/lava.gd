@@ -1,15 +1,14 @@
 extends Area2D
 
 @export var base_speed: float = 10.0        # speed awal / speed minimum saat reset
-@export var max_speed: float = 100.0        # batas atas speed saat akselerasi
-@export var acceleration: float = 50.0      # px/detik^2, nambah speed saat ngejar bebas
+@export var max_speed: float = 90.0        # batas atas speed saat akselerasi
+@export var acceleration: float = 30.0      # px/detik^2, nambah speed saat ngejar bebas
 @export var deceleration: float = 200.0     # px/detik^2, turun speed saat mentok/tertinggal
-@export var screen_margin: float = 3.0
+@export var screen_margin: float = 5.0
 @export var bottom_marker_path: NodePath
 
 @export var immediate_kill := true          # lava selalu insta-kill, tidak tertahan god_mode
 @export var slowmo_speed_multiplier: float = 0.4   # seberapa lambat lava saat powerup LAVA_SLOWMO aktif
-@onready var sfx: AudioStreamPlayer2D = $SFX
 
 var bottom_marker: Marker2D
 var current_speed: float
@@ -24,10 +23,12 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		EventBus.emit_signal("kill_player", immediate_kill)
-		sfx.play()
 
 
 func _physics_process(delta: float) -> void:
+	if not Global.game_start:
+		return
+
 	if bottom_marker == null:
 		return
 
