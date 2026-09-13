@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://7e1njrd8kpv" path="res://Features/HolePit/hole_pit.tscn" id="2_qkpqy"]
 [ext_resource type="PackedScene" uid="uid://brxbv6selcv15" path="res://Features/Lava/lava.tscn" id="3_b65ur"]
 [ext_resource type="Resource" uid="uid://cmrpgy4qkibn4" path="res://Features/Obstacles/obs1_data.tres" id="3_u0rui"]
-[ext_resource type="Texture2D" uid="uid://d3oqdykb3w3jh" path="res://Features/Platform/PlatformSheet.png" id="4_d8lkn"]
+[ext_resource type="Texture2D" uid="uid://d3oqdykb3w3jh" path="res://Features/platform/PlatformSheet.png" id="4_d8lkn"]
 [ext_resource type="Resource" uid="uid://dpo2wg5auxxuj" path="res://Features/Obstacles/obs2_data.tres" id="4_h3xex"]
 [ext_resource type="Resource" uid="uid://bqf3unot8dwg6" path="res://Features/Obstacles/obs3_data.tres" id="5_hvv1g"]
 [ext_resource type="Resource" uid="uid://ca4crqjady24q" path="res://Features/Obstacles/obs4_data.tres" id="6_yqe05"]
@@ -20,6 +20,7 @@
 [ext_resource type="Resource" uid="uid://c7upji2tdn4vp" path="res://Features/MovingPlatform/Spiked_MPlatform/spike_Mplatform.tres" id="13_u0rui"]
 [ext_resource type="Script" uid="uid://b7o5ljg1bcsyp" path="res://Features/Lava/lava_burst_manager.gd" id="14_h3xex"]
 [ext_resource type="PackedScene" uid="uid://cbelu7m0udgvy" path="res://Features/Lava/lava_burst.tscn" id="15_hvv1g"]
+[ext_resource type="PackedScene" uid="uid://cnc4xeqg22ikv" path="res://Features/PowerUps/random_powerup.tscn" id="21_blthe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o3ksw"]
 texture = ExtResource("4_d8lkn")
@@ -85,6 +86,9 @@ tile_set = SubResource("TileSet_vuu0q")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=743022217]
 position = Vector2(0, 64)
 shape = SubResource("RectangleShape2D_d8lkn")
+
+[node name="Random_PowerUp" parent="." unique_id=214980479 instance=ExtResource("21_blthe")]
+position = Vector2(99, -92)
 
 [connection signal="body_entered" from="Lava" to="Player" method="_on_lava_body_entered"]
 [connection signal="area_entered" from="HolePit/AreaOut" to="HolePit" method="_on_area_out_area_entered"]
