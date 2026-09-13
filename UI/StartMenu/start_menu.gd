@@ -7,8 +7,10 @@ func _ready() -> void:
 	$PanelContainer/VBoxContainer/StartButton.grab_focus()
 	
 	$PanelContainer/Credits.visible = false
+	$PanelContainer/Credits_2.visible = false
 	$PanelContainer/VBoxContainer/CreditsButton.connect("pressed", func() -> void: 
 		$PanelContainer/Credits.visible = true
+		$PanelContainer/Credits_2.visible = true
 		$PanelContainer/VBoxContainer/CreditsButton.visible = false
 		$PanelContainer/VBoxContainer/StartButton.grab_focus()
 	)

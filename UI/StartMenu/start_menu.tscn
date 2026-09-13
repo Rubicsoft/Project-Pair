@@ -109,9 +109,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 89.0
+offset_left = 85.0
 offset_top = -201.0
-offset_right = 194.0
+offset_right = 190.0
 offset_bottom = -64.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -127,6 +127,32 @@ Game Programmer:
 Game Artist:
 > Rafee Athallah Azizulah
 > Akhmad Fahmi Zaenal Abidin"
+
+[node name="Credits_2" type="Label" parent="PanelContainer" unique_id=1864547215]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -303.0
+offset_top = -201.0
+offset_right = -88.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 8
+text = "[Thirdparty Credits]
+
+Walk on grass 1,2,3 by Joentnt <
+Pixel song 11 by freesound_community <
+Lava steam by u_5iteaickfa <
+Good jetpack by freesound_community <
+8 bit retro coin <
+Angry cat meow by vadim make sound freesound_community <
+Arcade retro level up by krnbeatz <"
+horizontal_alignment = 2
 
 [node name="FadeIn" type="ColorRect" parent="." unique_id=1734134786]
 visible = false
