@@ -51,8 +51,7 @@ func _process(_delta: float) -> void:
 	
 	if Global.update_score:
 		current_ypos = global_position.y
-		Global.score = int(last_ypos - current_ypos)
-		Global.score = maxi(Global.score, 0)
+		Global.score = maxi(Global.score, int(last_ypos - current_ypos))
 	
 	# POWER UPS
 	$PowerUps/Shield/Sprite2D.visible = god_mode
@@ -106,12 +105,15 @@ func _physics_process(delta: float) -> void:
 
 func kill_self(immideate_kill: bool) -> void:
 	if god_mode and not immideate_kill: return
+	if not movable: return
 	
 	movable = false
 	velocity.x = move_toward(velocity.x, 0, movement_speed * get_physics_process_delta_time() * 4.0)
 	camera_follow = false
 	Global.update_score = false
-	if Global.score > Global.high_score: Global.high_score = Global.score
+	if Global.score > Global.high_score:
+		Global.high_score = Global.score
+		Global.save_high_score()
 	$CollisionShape2D.disabled = true
 	animplayer.flip_v = true
 	$Sounds/CatDeath.play()
