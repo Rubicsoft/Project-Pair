@@ -103,16 +103,23 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 62.0
-offset_top = -130.0
-offset_right = 116.0
-offset_bottom = -57.0
+offset_left = 55.0
+offset_top = -184.0
+offset_right = 160.0
+offset_bottom = -47.0
 grow_vertical = 0
-theme_override_font_sizes/font_size = 12
-text = "Neo Dimas
-Reyhan Abi
-Rafee
-Afif"
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 8
+text = "Game Designer:
+> Neo Dimas Rismanto
+
+Game Programmer:
+> Muhammad Reyhan Abi Muhtar
+> Afif Fahmi Syahputra Madani
+
+Game Artist:
+> Rafee Athallah Azizulah
+> Akhmad Fahmi Zaenal Abidin"
 
 [node name="FadeIn" type="ColorRect" parent="." unique_id=1734134786]
 visible = false
