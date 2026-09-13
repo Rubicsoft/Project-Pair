@@ -10,6 +10,11 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_drjrk"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xj1xw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2iung"]
+bg_color = Color(1, 1, 1, 1)
+
 [resource]
 default_font = ExtResource("1_drjrk")
 default_font_size = 24
@@ -23,3 +28,5 @@ Button/styles/focus = SubResource("StyleBoxEmpty_l6b62")
 Button/styles/hover = SubResource("StyleBoxEmpty_sjbyo")
 Button/styles/pressed = SubResource("StyleBoxEmpty_7jh1a")
 Panel/styles/panel = SubResource("StyleBoxEmpty_drjrk")
+ProgressBar/styles/background = SubResource("StyleBoxEmpty_xj1xw")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_2iung")

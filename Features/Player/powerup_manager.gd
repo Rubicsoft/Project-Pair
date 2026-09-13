@@ -27,6 +27,7 @@ func _process(_delta: float) -> void:
 			PowerUpType.SHIELD: player.god_mode = true
 			PowerUpType.BOOST_DURATION: player.extra_boost_duration = true
 			PowerUpType.LAVA_SLOWMO: Global.lava_slowmo = true
+	Global.powerup_timer = timer.time_left
 
 func activate_powerup() -> void:
 	powerup_in_use = true

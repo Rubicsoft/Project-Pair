@@ -80,7 +80,20 @@ theme_override_font_sizes/font_size = 16
 text = "Score: 000"
 horizontal_alignment = 1
 
-[node name="PowerUp" type="Label" parent="HUD_Box/Panel" unique_id=179237983]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD_Box/Panel" unique_id=1363586906]
+libraries/ = SubResource("AnimationLibrary_qdh7y")
+
+[node name="Panel_2" type="Panel" parent="HUD_Box" unique_id=433187077]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_te8l2")
+
+[node name="PowerUp" type="Label" parent="HUD_Box/Panel_2" unique_id=179237983]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -94,10 +107,20 @@ theme_override_font_sizes/font_size = 16
 text = "PowerUp: SHIELD"
 horizontal_alignment = 1
 
-[node name="Timer" type="Timer" parent="HUD_Box/Panel/PowerUp" unique_id=1578013378]
+[node name="Timer" type="Timer" parent="HUD_Box/Panel_2/PowerUp" unique_id=1578013378]
 wait_time = 5.0
 one_shot = true
 ignore_time_scale = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD_Box/Panel" unique_id=1363586906]
-libraries/ = SubResource("AnimationLibrary_qdh7y")
+[node name="PowerUpDuration" type="ProgressBar" parent="HUD_Box/Panel_2" unique_id=583918752]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -86.0
+offset_top = 93.0
+offset_right = 86.0
+offset_bottom = 97.0
+grow_horizontal = 2
+max_value = 10.0
+show_percentage = false
