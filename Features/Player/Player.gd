@@ -110,5 +110,7 @@ func kill_self(immideate_kill: bool) -> void:
 	if Global.score > Global.high_score: Global.high_score = Global.score
 	$CollisionShape2D.disabled = true
 	animplayer.flip_v = true
+	await get_tree().create_timer(3).timeout
+	Global.game_start = false
 	
 	print("PLAYER MATI")

@@ -14,3 +14,4 @@ func reset_global_vars() -> void:
 	lava_slowmo = false
 	powerup_timer = 0.0
 	update_score = true
+	

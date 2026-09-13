@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://7e1njrd8kpv" path="res://Features/HolePit/hole_pit.tscn" id="2_qkpqy"]
 [ext_resource type="PackedScene" uid="uid://brxbv6selcv15" path="res://Features/Lava/lava.tscn" id="3_b65ur"]
 [ext_resource type="Resource" uid="uid://cmrpgy4qkibn4" path="res://Features/Obstacles/obs1_data.tres" id="3_u0rui"]
-[ext_resource type="Texture2D" uid="uid://d3oqdykb3w3jh" path="res://Features/platform/PlatformSheet.png" id="4_d8lkn"]
+[ext_resource type="Texture2D" uid="uid://d3oqdykb3w3jh" path="res://Features/Platform/PlatformSheet.png" id="4_d8lkn"]
 [ext_resource type="Resource" uid="uid://dpo2wg5auxxuj" path="res://Features/Obstacles/obs2_data.tres" id="4_h3xex"]
 [ext_resource type="Resource" uid="uid://bqf3unot8dwg6" path="res://Features/Obstacles/obs3_data.tres" id="5_hvv1g"]
 [ext_resource type="Resource" uid="uid://ca4crqjady24q" path="res://Features/Obstacles/obs4_data.tres" id="6_yqe05"]
@@ -68,6 +68,7 @@ player_path = NodePath("../Player")
 [node name="Player" parent="." unique_id=1150004504 instance=ExtResource("1_hrck2")]
 
 [node name="Lava" parent="." unique_id=896567504 instance=ExtResource("3_b65ur")]
+position = Vector2(0, -108)
 collision_layer = 4
 collision_mask = 7
 
@@ -86,6 +87,7 @@ collision_mask = 6
 collision_mask = 6
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1850152302]
+z_index = -1
 
 [node name="Start" type="TileMapLayer" parent="StaticBody2D" unique_id=1385723556]
 tile_map_data = PackedByteArray("AAAAAAEAAAACAAIAAAD//wEAAAACAAIAAAD+/wEAAAAAAAIAAAABAAEAAAAEAAIAAAD+/wIAAAAAAAYAAAABAAIAAAAEAAYAAAAAAAIAAAAEAAQAAFD//wIAAAAEAAQAAFA=")
