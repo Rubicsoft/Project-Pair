@@ -42,7 +42,9 @@ func deactivate_powerup() -> void:
 	timer.stop()
 	powerup_in_use = false
 	
-	player.god_mode = false
 	player.extra_boost_duration = false
 	Global.lava_slowmo = false
 	print("POWERUP DEACTIVATED")
+	
+	await get_tree().create_timer(0.1).timeout
+	player.god_mode = false
