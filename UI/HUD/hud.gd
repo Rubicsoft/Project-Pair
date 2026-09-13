@@ -18,7 +18,7 @@ func _ready() -> void:
 	$HUD_Box/Panel_2/PowerUp.visible = false
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept") and restartable:
+	if event.is_action_pressed("restart") and restartable:
 		get_tree().reload_current_scene()
 
 func _process(_delta: float) -> void:

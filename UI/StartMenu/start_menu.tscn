@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bfd7nfh5f08n7" path="res://UI/StartMenu/start_menu.gd" id="1_x5yf0"]
 [ext_resource type="Theme" uid="uid://djdfumrmhfg6d" path="res://UI/default_theme.tres" id="2_l6b62"]
+[ext_resource type="PackedScene" uid="uid://cabjutlatjcu8" path="res://UI/ButtonClick/button_click.tscn" id="3_7jh1a"]
 
 [sub_resource type="Gradient" id="Gradient_l6b62"]
 colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.27058825)
@@ -42,7 +43,7 @@ offset_bottom = -63.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 48
-text = "MEOWKANO"
+text = "MEOWCANO"
 
 [node name="Subtitle" type="Label" parent="PanelContainer" unique_id=2080890709]
 layout_mode = 1
@@ -98,15 +99,21 @@ layout_mode = 2
 text = "QUIT"
 flat = true
 
+[node name="ButtonClick" parent="PanelContainer/VBoxContainer" unique_id=1395368790 node_paths=PackedStringArray("buttons") instance=ExtResource("3_7jh1a")]
+buttons = [NodePath("../StartButton"), NodePath("../CreditsButton"), NodePath("../QuitButton")]
+
 [node name="Credits" type="Label" parent="PanelContainer" unique_id=1587179393]
 layout_mode = 1
-anchors_preset = 2
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 55.0
-offset_top = -184.0
-offset_right = 160.0
-offset_bottom = -47.0
+offset_left = 89.0
+offset_top = -201.0
+offset_right = 194.0
+offset_bottom = -64.0
+grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 8
