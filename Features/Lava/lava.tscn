@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://d11tit6ofmvxk" path="res://Features/Lava/lava.gd" id="1_x8qlx"]
 [ext_resource type="Texture2D" uid="uid://bytxk2vmiv8ws" path="res://Features/Lava/lavaAnim.png" id="2_x8qlx"]
+[ext_resource type="AudioStream" uid="uid://brvk1lhcbopt2" path="res://Features/Lava/lavaDeath.mp3" id="3_t56d5"]
+[ext_resource type="AudioStream" uid="uid://v1kn5dwihbld" path="res://Features/Lava/lavaBG.mp3" id="4_l2eiu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t56d5"]
 texture = ExtResource("2_x8qlx")
@@ -62,3 +64,12 @@ tile_set = SubResource("TileSet_l2eiu")
 position = Vector2(3.8146973e-06, 203.5)
 scale = Vector2(5.1718745, 1)
 shape = SubResource("RectangleShape2D_d8lkn")
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="." unique_id=1747547712]
+stream = ExtResource("3_t56d5")
+
+[node name="Ambient" type="AudioStreamPlayer2D" parent="." unique_id=314388926]
+stream = ExtResource("4_l2eiu")
+autoplay = true
+max_distance = 150.0
+parameters/looping = true

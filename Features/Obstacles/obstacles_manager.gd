@@ -14,14 +14,14 @@ class_name ObstacleManager
 @export var extra_gap_min: float = 30.0
 @export var extra_gap_max: float = 80.0
 
-@export var spawn_ahead_distance: float = 1000.0
+@export var spawn_ahead_distance: float = 400.0
 @export var despawn_behind_distance: float = 700.0
 
 @export var debug_draw: bool = true   # aktifkan saat playtest, matikan lagi setelah selesai
 
 var player: Node2D
 var next_row_y: float
-var active_obstacles: Array[Node2D] = []
+var active_obstacles: Array[Dictionary] = []   # tiap entry: {"node": Node2D, "rect": Rect2}
 var total_weight: float = 0.0
 var row_max_height: float = 0.0
 var debug_rows: Array = []
@@ -84,11 +84,15 @@ func fill_segment(segment_start: float, segment_end: float) -> void:
 
 
 func spawn_obstacle(data: ObstacleData, x: float) -> void:
+	var slot_center := Vector2(x, next_row_y)
+
 	var obstacle: Node2D = data.scene.instantiate()
-	obstacle.position = Vector2(x, next_row_y) - data.center_offset   # set SEBELUM add_child
+	obstacle.position = slot_center - data.center_offset   # set SEBELUM add_child
 	add_child(obstacle)
 
-	active_obstacles.append(obstacle)
+	var rect := Rect2(slot_center - Vector2(data.width, data.height) / 2.0, Vector2(data.width, data.height))
+	active_obstacles.append({"node": obstacle, "rect": rect})
+
 	row_max_height = max(row_max_height, data.height)
 
 
@@ -104,9 +108,16 @@ func pick_weighted_obstacle() -> ObstacleData:
 	return obstacle_pool.back()
 
 
+func get_active_rects() -> Array[Rect2]:
+	var rects: Array[Rect2] = []
+	for entry in active_obstacles:
+		rects.append(entry["rect"])
+	return rects
+
+
 func despawn_old_obstacles() -> void:
 	for i in range(active_obstacles.size() - 1, -1, -1):
-		var obstacle := active_obstacles[i]
+		var obstacle: Node2D = active_obstacles[i]["node"]
 
 		if not is_instance_valid(obstacle):
 			active_obstacles.remove_at(i)
