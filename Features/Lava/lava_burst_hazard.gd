@@ -10,6 +10,7 @@ class_name LavaBurstHazard
 
 func _ready() -> void:
 	lava_visual.visible = false
+	lava_visual.frame = 1
 	warning_icon.visible = true
 	Colision.disabled = true 
 

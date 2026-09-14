@@ -4,7 +4,7 @@ class_name LavaBurstManager
 @export var hazard_scene: PackedScene
 @export var player_path: NodePath
 
-@export var play_area_width: float = 390.0
+@export var play_area_width: float = 330.0
 @export var min_spawn_interval: float = 2.0
 @export var max_spawn_interval: float = 5.0
 

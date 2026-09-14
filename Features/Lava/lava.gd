@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var base_speed: float = 10.0        # speed awal / speed minimum saat reset
-@export var max_speed: float = 60.0        # batas atas speed saat akselerasi
+@export var max_speed: float = 100.0        # batas atas speed saat akselerasi
 @export var acceleration: float = 30.0      # px/detik^2, nambah speed saat ngejar bebas
 @export var deceleration: float = 200.0     # px/detik^2, turun speed saat mentok/tertinggal
 @export var screen_margin: float = 5.0

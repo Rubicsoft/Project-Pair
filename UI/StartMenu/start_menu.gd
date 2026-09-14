@@ -22,8 +22,8 @@ func _ready() -> void:
 		visible = false
 	)
 	
-	$PanelContainer/VBoxContainer/HighScore.text = "High Score: " + str(Global.high_score) + "\n"
-	$PanelContainer/VBoxContainer/HighScore.visible = Global.high_score > 0
+	$PanelContainer/HighScore.text = "High Score: " + str(Global.high_score) + "\n"
+	$PanelContainer/HighScore.visible = Global.high_score > 0
 	
 	$FadeIn.visible = true
 	create_tween().tween_property($FadeIn, "self_modulate", Color.TRANSPARENT, 0.5)

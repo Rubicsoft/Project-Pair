@@ -34,6 +34,10 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmy3u"]
+atlas = ExtResource("2_iq4nf")
+region = Rect2(0, 544, 64, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_k3ing"]
 atlas = ExtResource("2_iq4nf")
 region = Rect2(0, 0, 64, 32)
@@ -102,13 +106,12 @@ region = Rect2(0, 480, 64, 32)
 atlas = ExtResource("2_iq4nf")
 region = Rect2(0, 512, 64, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gmy3u"]
-atlas = ExtResource("2_iq4nf")
-region = Rect2(0, 544, 64, 32)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_qw6tp"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmy3u")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_k3ing")
 }, {
@@ -159,13 +162,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ykk6f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gmy3u")
 }],
 "loop": false,
 "name": &"default",
-"speed": 10.0
+"speed": 12.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wrc2f"]
@@ -173,10 +173,9 @@ size = Vector2(60, 20)
 
 [node name="LavaBurst" type="Node2D" unique_id=284056175]
 script = ExtResource("1_iq4nf")
-warning_duration = 1.0
 
 [node name="Warning" type="AnimatedSprite2D" parent="." unique_id=742034145]
-position = Vector2(-50, 0)
+position = Vector2(-16, 0)
 sprite_frames = SubResource("SpriteFrames_k3ing")
 autoplay = "default"
 frame_progress = 0.76847476
@@ -184,8 +183,6 @@ frame_progress = 0.76847476
 [node name="LavaVisual" type="AnimatedSprite2D" parent="." unique_id=2046608357]
 sprite_frames = SubResource("SpriteFrames_qw6tp")
 autoplay = "default"
-frame = 9
-frame_progress = 0.949479
 
 [node name="DamageHitbox" parent="." unique_id=1793363561 instance=ExtResource("3_0der3")]
 
