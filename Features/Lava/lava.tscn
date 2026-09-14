@@ -53,7 +53,8 @@ sources/1 = SubResource("TileSetAtlasSource_t56d5")
 size = Vector2(111.37161, 51)
 
 [sub_resource type="Gradient" id="Gradient_kue1c"]
-colors = PackedColorArray(0.92941177, 0.33333334, 0.011764706, 1, 0.45031446, 0, 0.103727974, 1)
+offsets = PackedFloat32Array(0.09803922, 0.51960784, 1)
+colors = PackedColorArray(0.8589976, 0.58380413, 3.85046e-07, 1, 0.92941177, 0.33333334, 0.011764706, 1, 0.33577958, 2.1658838e-07, 0.067750655, 1)
 
 [node name="Lava" type="Area2D" unique_id=896567504]
 script = ExtResource("1_x8qlx")

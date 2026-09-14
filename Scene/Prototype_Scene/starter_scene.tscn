@@ -71,6 +71,8 @@ player_path = NodePath("../Player")
 position = Vector2(0, -108)
 collision_layer = 4
 collision_mask = 7
+max_speed = 100.0
+acceleration = 100.0
 
 [node name="HolePit" parent="." unique_id=329477807 instance=ExtResource("2_qkpqy")]
 
