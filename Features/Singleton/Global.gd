@@ -25,6 +25,7 @@ func save_high_score() -> void:
 	config.save(HIGH_SCORE_PATH)
 
 func reset_global_vars() -> void:
+	game_start = false
 	score = 0
 	lava_slowmo = false
 	powerup_timer = 0.0
