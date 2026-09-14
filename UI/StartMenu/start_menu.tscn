@@ -109,14 +109,14 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 85.0
-offset_top = -201.0
-offset_right = 190.0
-offset_bottom = -64.0
+offset_left = 72.0
+offset_top = -186.0
+offset_right = 203.0
+offset_bottom = -46.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/line_spacing = 0
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 10
 text = "Game Designer:
 > Neo Dimas Rismanto
 
@@ -135,14 +135,14 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -303.0
-offset_top = -201.0
-offset_right = -88.0
-offset_bottom = -64.0
+offset_left = -320.0
+offset_top = -182.0
+offset_right = -71.0
+offset_bottom = -45.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/line_spacing = 0
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 10
 text = "[Thirdparty Credits]
 
 Walk on grass 1,2,3 by Joentnt <

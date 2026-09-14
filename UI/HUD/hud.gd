@@ -59,10 +59,10 @@ func update_powerups(status: Dictionary) -> void:
 			row = HBoxContainer.new()
 			var label := Label.new()
 			label.custom_minimum_size.x = 145.0
-			label.add_theme_font_size_override("font_size", 12)
+			label.add_theme_font_size_override("font_size", 14)
 			row.add_child(label)
 			var bar := ProgressBar.new()
-			bar.custom_minimum_size = Vector2(55.0, 10.0)
+			bar.custom_minimum_size = Vector2(55.0, 15.0)
 			bar.max_value = 10.0
 			bar.show_percentage = false
 			row.add_child(bar)

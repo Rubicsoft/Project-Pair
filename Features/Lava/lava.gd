@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var base_speed: float = 10.0        # speed awal / speed minimum saat reset
-@export var max_speed: float = 90.0        # batas atas speed saat akselerasi
+@export var max_speed: float = 60.0        # batas atas speed saat akselerasi
 @export var acceleration: float = 30.0      # px/detik^2, nambah speed saat ngejar bebas
 @export var deceleration: float = 200.0     # px/detik^2, turun speed saat mentok/tertinggal
 @export var screen_margin: float = 5.0
@@ -9,7 +9,11 @@ extends Area2D
 
 @export var immediate_kill := true          # lava selalu insta-kill, tidak tertahan god_mode
 @export var slowmo_speed_multiplier: float = 0.4   # seberapa lambat lava saat powerup LAVA_SLOWMO aktif
+@export var startup_duration: float = 8.0
+@export var startup_speed: float = 2  # kecepatan lava selama fase awal (0 = diam dulu)
 
+var _startup_timer: float = 0.0
+var _startup_done: bool = false
 var bottom_marker: Marker2D
 var current_speed: float
 
@@ -35,10 +39,14 @@ func _physics_process(delta: float) -> void:
 	var max_y := bottom_marker.global_position.y + screen_margin
 	var is_clamped := global_position.y >= max_y
 
-	# Saat slowmo aktif, akselerasi/deselerasi DIBEKUKAN dulu -> current_speed tidak
-	# terus menumpuk selama powerup aktif, jadi begitu powerup habis, lava tidak
-	# "meledak" mendadak ke speed tinggi yang sempat terbangun diam-diam.
-	if not Global.lava_slowmo:
+	# Fase startup: lava melambat dulu selama `startup_duration` detik
+	# sebelum mulai logika akselerasi/deselerasi yang sebenarnya.
+	if not _startup_done:
+		_startup_timer += delta
+		current_speed = move_toward(current_speed, startup_speed, acceleration * delta)
+		if _startup_timer >= startup_duration:
+			_startup_done = true
+	elif not Global.lava_slowmo:
 		if is_clamped:
 			current_speed = move_toward(current_speed, base_speed, deceleration * delta)
 		else:
