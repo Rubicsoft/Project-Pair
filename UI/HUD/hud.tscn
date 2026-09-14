@@ -126,7 +126,7 @@ text = "PowerUp: SHIELD"
 horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="HUD_Box/Panel_2/PowerUp" unique_id=1578013378]
-wait_time = 5.0
+wait_time = 10.0
 one_shot = true
 ignore_time_scale = true
 

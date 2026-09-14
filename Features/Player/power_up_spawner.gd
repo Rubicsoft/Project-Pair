@@ -7,6 +7,7 @@ class_name PowerupSpawner
 
 @export var play_area_width: float = 390.0
 @export var spawn_ahead_offset: float = 500.0
+@export var despawn_behind_distance: float = 700.0
 @export var overlap_padding: float = 30.0        # jarak aman tambahan dari tepi obstacle
 @export var powerup_footprint: Vector2 = Vector2(60.0, 60.0)   # perkiraan ukuran collision powerup
 
@@ -29,6 +30,7 @@ func _process(delta: float) -> void:
 	if player == null:
 		return
 
+	_despawn_old_powerups()
 	time_until_next_spawn -= delta
 	if time_until_next_spawn <= 0.0:
 		_try_spawn_powerup()
@@ -73,3 +75,10 @@ func _spawn_powerup(pos: Vector2) -> void:
 	var powerup: Node2D = scene.instantiate()
 	powerup.position = pos
 	add_child(powerup)
+
+
+func _despawn_old_powerups() -> void:
+	var despawn_y := player.global_position.y + despawn_behind_distance
+	for child in get_children():
+		if child is Node2D and child.global_position.y > despawn_y:
+			child.queue_free()

@@ -31,6 +31,7 @@ func _process(_delta: float) -> void:
 	Global.powerup_timer = timer.time_left
 
 func activate_powerup() -> void:
+	_clear_powerup_effects()
 	sfx.play()
 	powerup_in_use = true
 	power_up = randi_range(0, POWERUP_COUNT - 1) as PowerUpType
@@ -41,10 +42,11 @@ func activate_powerup() -> void:
 func deactivate_powerup() -> void:
 	timer.stop()
 	powerup_in_use = false
-	
-	player.extra_boost_duration = false
-	Global.lava_slowmo = false
+	_clear_powerup_effects()
 	print("POWERUP DEACTIVATED")
 	
-	await get_tree().create_timer(0.1).timeout
+
+func _clear_powerup_effects() -> void:
 	player.god_mode = false
+	player.extra_boost_duration = false
+	Global.lava_slowmo = false

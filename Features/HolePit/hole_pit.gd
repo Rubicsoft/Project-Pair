@@ -14,7 +14,10 @@ var is_deleting :bool = false
 	#$AreaOut.body_entered.connect(_on_area_out_body_entered)
 
 func spawn_next_holepit() -> void:
-	var next_holepit :Object = duplicate()  
+	var holepit_scene := load(scene_file_path) as PackedScene
+	if holepit_scene == null:
+		return
+	var next_holepit: Node2D = holepit_scene.instantiate()
 	next_holepit.position.y -= holepit_height
 	
 	get_parent().add_child(next_holepit)

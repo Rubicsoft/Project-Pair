@@ -9,7 +9,7 @@ var restartable := false
 
 func _ready() -> void:
 	EventBus.connect("kill_player", func(_unused_var: bool) -> void:
-		$HUD_Box/Panel/ScoreCount.text = "High Score: " + str(Global.score)
+		$HUD_Box/Panel/ScoreCount.text = "Score: " + str(Global.score) + "\nHigh Score: " + str(Global.high_score)
 		$HUD_Box/Panel_2.visible = false
 		restartable = true
 		$HUD_Box/Panel/AnimationPlayer.play("endgame")
