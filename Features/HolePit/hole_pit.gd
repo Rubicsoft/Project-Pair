@@ -18,7 +18,7 @@ func spawn_next_holepit() -> void:
 	if holepit_scene == null:
 		return
 	var next_holepit: Node2D = holepit_scene.instantiate()
-	next_holepit.position.y -= holepit_height
+	next_holepit.global_position = global_position + Vector2(0.0, -holepit_height)
 	
 	get_parent().add_child(next_holepit)
 
