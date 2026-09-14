@@ -7,5 +7,6 @@
 script = ExtResource("1_2x2w7")
 scene = ExtResource("1_easah")
 width = 190.0
+height = 66.0
 center_offset = Vector2(-0.5, 33)
 metadata/_custom_type_script = "uid://bouifvglww5dd"

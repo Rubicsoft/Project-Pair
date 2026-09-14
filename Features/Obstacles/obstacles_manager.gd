@@ -91,7 +91,16 @@ func spawn_obstacle(data: ObstacleData, x: float) -> void:
 	add_child(obstacle)
 
 	var rect := Rect2(slot_center - Vector2(data.width, data.height) / 2.0, Vector2(data.width, data.height))
-	active_obstacles.append({"node": obstacle, "rect": rect})
+	var bounds_node: Node2D = obstacle
+	if data.type == ObstacleData.Type.MOVING_PLATFORM and obstacle.has_node("MovingPlatformBody"):
+		bounds_node = obstacle.get_node("MovingPlatformBody") as Node2D
+	active_obstacles.append({
+		"node": obstacle,
+		"bounds_node": bounds_node,
+		"rect": rect,
+		"bounds_offset": rect.position - bounds_node.global_position,
+		"size": rect.size,
+	})
 
 	row_max_height = max(row_max_height, data.height)
 
@@ -111,6 +120,9 @@ func pick_weighted_obstacle() -> ObstacleData:
 func get_active_rects() -> Array[Rect2]:
 	var rects: Array[Rect2] = []
 	for entry in active_obstacles:
+		var bounds_node: Node2D = entry["bounds_node"]
+		if is_instance_valid(bounds_node):
+			entry["rect"] = Rect2(bounds_node.global_position + entry["bounds_offset"], entry["size"])
 		rects.append(entry["rect"])
 	return rects
 

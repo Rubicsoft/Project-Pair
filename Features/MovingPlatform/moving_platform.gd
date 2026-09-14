@@ -33,4 +33,4 @@ func _ready() -> void:
 
 
 func calculate_duration() -> float:
-	return duration / 2.0 - delay_time
+	return maxf(duration / 2.0 - delay_time, 0.01)
