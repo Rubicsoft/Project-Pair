@@ -28,6 +28,7 @@ var last_direction := 0.0
 var smoothed_direction := 0.0
 var _upward_force := 0.0
 var playing_animsheet := false
+var shield_invulnerability_time := 0.0
 
 
 func _enter_tree() -> void: Global.player = self
@@ -44,7 +45,8 @@ func _ready() -> void:
 	last_ypos = global_position.y
 	upward_cooldown = upward_burst_duration
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
+	shield_invulnerability_time = maxf(shield_invulnerability_time - delta, 0.0)
 	if camera_follow: cam_follow_pivot.global_position.y = global_position.y - camera_edge
 	
 	animplayer.flip_h = last_direction > 0.0
@@ -104,7 +106,11 @@ func _physics_process(delta: float) -> void:
 
 
 func kill_self(immideate_kill: bool) -> void:
-	if god_mode and not immideate_kill: return
+	if shield_invulnerability_time > 0.0:
+		return
+	if god_mode and not immideate_kill:
+		$PowerUpManager.break_shield()
+		return
 	if not movable: return
 	
 	movable = false
@@ -117,6 +123,7 @@ func kill_self(immideate_kill: bool) -> void:
 	$CollisionShape2D.disabled = true
 	animplayer.flip_v = true
 	$Sounds/CatDeath.play()
+	EventBus.emit_signal("player_died")
 	await get_tree().create_timer(3).timeout
 	Global.game_start = false
 	

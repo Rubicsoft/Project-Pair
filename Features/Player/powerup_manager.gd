@@ -1,8 +1,8 @@
 extends Node
 
 @export var powerup_duration := 10.0
+@export var shield_break_invulnerability_duration := 2.0
 
-@onready var timer: Timer = $Timer
 @onready var player: Player = $".."
 @onready var sfx: AudioStreamPlayer2D = $SFX
 
@@ -13,40 +13,55 @@ enum PowerUpType {
 }
 const POWERUP_COUNT = 3
 
-var powerup_in_use := false
-var power_up: PowerUpType
+var active_powerups: Dictionary = {}
+var shield_was_broken := false
+var last_status: Dictionary = {}
 
 
 func _ready() -> void:
 	EventBus.connect("add_powerup", activate_powerup)
-	EventBus.connect("kill_player", func(_unused_var: bool) -> void: deactivate_powerup())
-	timer.connect("timeout", deactivate_powerup)
 
-func _process(_delta: float) -> void:
-	if powerup_in_use and player:
-		match power_up:
-			PowerUpType.SHIELD: player.god_mode = true
-			PowerUpType.BOOST_DURATION: player.extra_boost_duration = true
-			PowerUpType.LAVA_SLOWMO: Global.lava_slowmo = true
-	Global.powerup_timer = timer.time_left
+func _process(delta: float) -> void:
+	for powerup_type in active_powerups.keys():
+		active_powerups[powerup_type] -= delta
+		if active_powerups[powerup_type] <= 0.0:
+			active_powerups.erase(powerup_type)
+
+	if player:
+		player.god_mode = active_powerups.has(PowerUpType.SHIELD) and not shield_was_broken
+		player.extra_boost_duration = active_powerups.has(PowerUpType.BOOST_DURATION)
+	Global.lava_slowmo = active_powerups.has(PowerUpType.LAVA_SLOWMO)
+	Global.powerup_timer = _get_longest_remaining_time()
+	_emit_status_if_changed()
 
 func activate_powerup() -> void:
-	_clear_powerup_effects()
 	sfx.play()
-	powerup_in_use = true
-	power_up = randi_range(0, POWERUP_COUNT - 1) as PowerUpType
-	EventBus.emit_signal("powerup_index", power_up)
-	timer.start(powerup_duration)
-	print("ACTIVATE POWERUP: " + str(power_up))
+	var powerup_type := randi_range(0, POWERUP_COUNT - 1) as PowerUpType
+	active_powerups[powerup_type] = powerup_duration
+	if powerup_type == PowerUpType.SHIELD:
+		shield_was_broken = false
+	_emit_status_if_changed()
+	print("ACTIVATE POWERUP: " + str(powerup_type))
 
-func deactivate_powerup() -> void:
-	timer.stop()
-	powerup_in_use = false
-	_clear_powerup_effects()
-	print("POWERUP DEACTIVATED")
-	
-
-func _clear_powerup_effects() -> void:
+func break_shield() -> void:
+	if not active_powerups.has(PowerUpType.SHIELD) or shield_was_broken:
+		return
+	active_powerups.erase(PowerUpType.SHIELD)
+	shield_was_broken = true
 	player.god_mode = false
-	player.extra_boost_duration = false
-	Global.lava_slowmo = false
+	player.shield_invulnerability_time = shield_break_invulnerability_duration
+	_emit_status_if_changed()
+
+func _get_longest_remaining_time() -> float:
+	var longest_time := 0.0
+	for remaining_time in active_powerups.values():
+		longest_time = maxf(longest_time, remaining_time)
+	return longest_time
+
+func _emit_status_if_changed() -> void:
+	var status := active_powerups.duplicate()
+	for powerup_type in status.keys():
+		status[powerup_type] = ceili(status[powerup_type])
+	if status != last_status:
+		last_status = status
+		EventBus.emit_signal("powerup_status_changed", active_powerups.duplicate())
